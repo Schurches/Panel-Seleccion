@@ -252,6 +252,7 @@ namespace SeleccionYJuego {
 			this->button9->TabIndex = 22;
 			this->button9->Text = L"Next Character";
 			this->button9->UseVisualStyleBackColor = true;
+			this->button9->Click += gcnew System::EventHandler(this, &Juego::button9_Click);
 			// 
 			// pictureBox1
 			// 
@@ -506,7 +507,7 @@ namespace SeleccionYJuego {
 		}
 
 
-		//////////////////////////////////////////////DECLARANDO LOS PERSONAJES
+		//////////////////////////////////////////////DECLARANDO LAS CARACTERISTICAS DE LOS PERSONAJES
 		//Jinete
 		ref struct Jinete
 		{
@@ -575,14 +576,135 @@ namespace SeleccionYJuego {
 		//Jugador
 
 
-		//Listas
+		//Listas PTR y nodos auxiliares
 		static Jinete^PTR1 = nullptr;
+		static Jinete^ JinAux = nullptr;
 		static Caballero^PTR2 = nullptr;
+		static Caballero^CabAux = nullptr;
 		static Luchador^PTR3 = nullptr;
+		static Luchador^LuchAux = nullptr;
 		static Mercenario^PTR4 = nullptr;
+		static Mercenario^MerAux = nullptr;
 		static Mirmidon^PTR5 = nullptr;
+		static Mirmidon^MirAux = nullptr;
 		//Contadores de personajes por lista
 		int ContJin = 0, ContCab = 0, ContLuch = 0, ContMer = 0, ContMir = 0;
+		////////////////MOSTRAR INFORMACION DEL PRIMER PERSONAJE DE LA LISTA (ESTO SUCEDE CUANDO SE DA CLICK A ALGUN ITEM DEL COMBOBOX)
+		////////////////ESTO TAMBIEN SIRVE PARA CUANDO PASAN AL SIGUIENTE PERSONAJE DE ALGUNA DE LAS UNIDADES
+		void siguienteJinete(){
+			if (JinAux == nullptr)
+			{
+				JinAux = PTR1;
+			}
+			else
+			{
+				JinAux = JinAux->Link;
+			}
+			listBox1->Items->Clear();
+			listBox1->Items->Add("Personaje: " + JinAux->Nombre);
+			listBox1->Items->Add("Puntos de Vida: " + JinAux->Vida + " LP");
+			listBox1->Items->Add("Ataque: " + JinAux->Ataque + " Puntos");
+			listBox1->Items->Add("Habilidad: " + JinAux->Habilidad);
+			listBox1->Items->Add("Velocidad: " + JinAux->Velocidad);
+			listBox1->Items->Add("Suerte: " + JinAux->Suerte);
+			listBox1->Items->Add("Defensa: " + JinAux->Defensa + " Puntos");
+			listBox1->Items->Add("Capacidad de Movimiento: " + JinAux->Movimiento + " Casillas");
+			pictureBox1->Load("Chucho.png");
+		}
+		////////////PARA CABALLERO
+		void siguienteCaballero(){
+			if (CabAux == nullptr)
+			{
+				CabAux = PTR2;
+			}
+			else
+			{
+				CabAux = CabAux->Link;
+			}
+			listBox1->Items->Clear();
+			listBox1->Items->Add("Personaje: " + CabAux->Nombre);
+			listBox1->Items->Add("Puntos de Vida: " + CabAux->Vida + " LP");
+			listBox1->Items->Add("Ataque: " + CabAux->Ataque + " Puntos");
+			listBox1->Items->Add("Habilidad: " + CabAux->Habilidad);
+			listBox1->Items->Add("Velocidad: " + CabAux->Velocidad);
+			listBox1->Items->Add("Suerte: " + CabAux->Suerte);
+			listBox1->Items->Add("Defensa: " + CabAux->Defensa + " Puntos");
+			listBox1->Items->Add("Capacidad de Movimiento: " + CabAux->Movimiento + " Casillas");
+			pictureBox1->Load("Chucho2.png");
+		}
+		////////////PARA LUCHADOR
+		void siguienteLuchador(){
+			if (LuchAux == nullptr)
+			{
+				LuchAux = PTR3;
+			}
+			else
+			{
+				LuchAux = LuchAux->Link;
+			}
+			listBox1->Items->Clear();
+			listBox1->Items->Add("Personaje: " + LuchAux->Nombre);
+			listBox1->Items->Add("Puntos de Vida: " + LuchAux->Vida + " LP");
+			listBox1->Items->Add("Ataque: " + LuchAux->Ataque + " Puntos");
+			listBox1->Items->Add("Habilidad: " + LuchAux->Habilidad);
+			listBox1->Items->Add("Velocidad: " + LuchAux->Velocidad);
+			listBox1->Items->Add("Suerte: " + LuchAux->Suerte);
+			listBox1->Items->Add("Defensa: " + LuchAux->Defensa + " Puntos");
+			listBox1->Items->Add("Capacidad de Movimiento: " + LuchAux->Movimiento + " Casillas");
+			pictureBox1->Load("Chucho3.png");
+		}
+		////////////PARA MERCENARIO
+		void siguienteMercenario(){
+			if (MerAux == nullptr)
+			{
+				MerAux = PTR4;
+			}
+			else
+			{
+				MerAux = MerAux->Link;
+			}
+			listBox1->Items->Clear();
+			listBox1->Items->Add("Personaje: " + MerAux->Nombre);
+			listBox1->Items->Add("Puntos de Vida: " + MerAux->Vida + " LP");
+			listBox1->Items->Add("Ataque: " + MerAux->Ataque + " Puntos");
+			listBox1->Items->Add("Habilidad: " + MerAux->Habilidad);
+			listBox1->Items->Add("Velocidad: " + MerAux->Velocidad);
+			listBox1->Items->Add("Suerte: " + MerAux->Suerte);
+			listBox1->Items->Add("Defensa: " + MerAux->Defensa + " Puntos");
+			listBox1->Items->Add("Capacidad de Movimiento: " + MerAux->Movimiento + " Casillas");
+			pictureBox1->Load("Chucho4.png");
+		}
+		////////////PARA MIRMIDOR
+		void siguienteMirmidor(){
+			if (MirAux == nullptr)
+			{
+				MirAux = PTR5;
+			}
+			else
+			{
+				MirAux = MirAux->Link;
+			}
+			listBox1->Items->Clear();
+			listBox1->Items->Add("Personaje: " + MirAux->Nombre);
+			listBox1->Items->Add("Puntos de Vida: " + MirAux->Vida + " LP");
+			listBox1->Items->Add("Ataque: " + MirAux->Ataque + " Puntos");
+			listBox1->Items->Add("Habilidad: " + MirAux->Habilidad);
+			listBox1->Items->Add("Velocidad: " + MirAux->Velocidad);
+			listBox1->Items->Add("Suerte: " + MirAux->Suerte);
+			listBox1->Items->Add("Defensa: " + MirAux->Defensa + " Puntos");
+			listBox1->Items->Add("Capacidad de Movimiento: " + MirAux->Movimiento + " Casillas");
+			pictureBox1->Load("Chucho5.png");
+		}
+
+
+
+
+
+
+
+
+
+
 		////////////////////////////////////////////////////CON LISTA ENLAZADA CIRCULAR
 		//////////////////////////CREANDO NUEVO PERSONAJE
 		//JINETE
@@ -710,76 +832,12 @@ namespace SeleccionYJuego {
 				P = nullptr;
 			}
 		}
-		////////////////MOSTRAR INFORMACION DEL PRIMER PERSONAJE DE LA LISTA (ESTO SUCEDE CUANDO SE DA CLICK A ALGUN ITEM DEL COMBOBOX)
-		////////////PARA JINETE
-		void primerJinete(){
-			listBox1->Items->Clear();
-			listBox1->Items->Add("Personaje: " + PTR1->Nombre);
-			listBox1->Items->Add("Puntos de Vida: " + PTR1->Vida + " LP");
-			listBox1->Items->Add("Ataque: " + PTR1->Ataque + " Puntos");
-			listBox1->Items->Add("Habilidad: " + PTR1->Habilidad);
-			listBox1->Items->Add("Velocidad: " + PTR1->Velocidad);
-			listBox1->Items->Add("Suerte: " + PTR1->Suerte);
-			listBox1->Items->Add("Defensa: " + PTR1->Defensa + " Puntos");
-			listBox1->Items->Add("Capacidad de Movimiento: " + PTR1->Movimiento + " Casillas");
-			pictureBox1->Load("Chucho.png");
-		}
 
-		////////////PARA CABALLERO
-		void primerCaballero(){
-			listBox1->Items->Clear();
-			listBox1->Items->Add("Personaje: " + PTR2->Nombre);
-			listBox1->Items->Add("Puntos de Vida: " + PTR2->Vida + " LP");
-			listBox1->Items->Add("Ataque: " + PTR2->Ataque + " Puntos");
-			listBox1->Items->Add("Habilidad: " + PTR2->Habilidad);
-			listBox1->Items->Add("Velocidad: " + PTR2->Velocidad);
-			listBox1->Items->Add("Suerte: " + PTR2->Suerte);
-			listBox1->Items->Add("Defensa: " + PTR2->Defensa + " Puntos");
-			listBox1->Items->Add("Capacidad de Movimiento: " + PTR2->Movimiento + " Casillas");
-			pictureBox1->Load("Chucho2.png");
-		}
-		////////////PARA LUCHADOR
-		void primerLuchador(){
-			listBox1->Items->Clear();
-			listBox1->Items->Add("Personaje: " + PTR3->Nombre);
-			listBox1->Items->Add("Puntos de Vida: " + PTR3->Vida + " LP");
-			listBox1->Items->Add("Ataque: " + PTR3->Ataque + " Puntos");
-			listBox1->Items->Add("Habilidad: " + PTR3->Habilidad);
-			listBox1->Items->Add("Velocidad: " + PTR3->Velocidad);
-			listBox1->Items->Add("Suerte: " + PTR3->Suerte);
-			listBox1->Items->Add("Defensa: " + PTR3->Defensa + " Puntos");
-			listBox1->Items->Add("Capacidad de Movimiento: " + PTR3->Movimiento + " Casillas");
-			pictureBox1->Load("Chucho3.png");
-		}
 
-		////////////PARA MERCENARIO
-		void primerMercenario(){
-			listBox1->Items->Clear();
-			listBox1->Items->Add("Personaje: " + PTR4->Nombre);
-			listBox1->Items->Add("Puntos de Vida: " + PTR4->Vida + " LP");
-			listBox1->Items->Add("Ataque: " + PTR4->Ataque + " Puntos");
-			listBox1->Items->Add("Habilidad: " + PTR4->Habilidad);
-			listBox1->Items->Add("Velocidad: " + PTR4->Velocidad);
-			listBox1->Items->Add("Suerte: " + PTR4->Suerte);
-			listBox1->Items->Add("Defensa: " + PTR4->Defensa + " Puntos");
-			listBox1->Items->Add("Capacidad de Movimiento: " + PTR4->Movimiento + " Casillas");
-			pictureBox1->Load("Chucho4.png");
-		}
+		
+		
 
-		////////////PARA MIRMIDOR
-		void primerMirmidor(){
-			listBox1->Items->Clear();
-			listBox1->Items->Add("Personaje: " + PTR5->Nombre);
-			listBox1->Items->Add("Puntos de Vida: " + PTR5->Vida + " LP");
-			listBox1->Items->Add("Ataque: " + PTR5->Ataque + " Puntos");
-			listBox1->Items->Add("Habilidad: " + PTR5->Habilidad);
-			listBox1->Items->Add("Velocidad: " + PTR5->Velocidad);
-			listBox1->Items->Add("Suerte: " + PTR5->Suerte);
-			listBox1->Items->Add("Defensa: " + PTR5->Defensa + " Puntos");
-			listBox1->Items->Add("Capacidad de Movimiento: " + PTR5->Movimiento + " Casillas");
-			pictureBox1->Load("Chucho5.png");
-		}
-
+		
 
 
 
@@ -846,7 +904,28 @@ namespace SeleccionYJuego {
 			P = nullptr;
 		}
 
-		
+		void moverseOPosicionarse(){
+			if (comboBox1->SelectedItem->Equals("Jinete"))
+			{
+				siguienteJinete();
+			}
+			if (comboBox1->SelectedItem->Equals("Caballero"))
+			{
+				siguienteCaballero();
+			}
+			if (comboBox1->SelectedItem->Equals("Luchador"))
+			{
+				siguienteLuchador();
+			}
+			if (comboBox1->SelectedItem->Equals("Mercenario"))
+			{
+				siguienteMercenario();
+			}
+			if (comboBox1->SelectedItem->Equals("Mirmidon"))
+			{
+				siguienteMirmidor();
+			}
+		}
 
 
 
@@ -855,29 +934,14 @@ namespace SeleccionYJuego {
 	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-			 if (comboBox1->SelectedItem->Equals("Jinete"))
-			 {
-				 primerJinete();
-			 }
-			 if (comboBox1->SelectedItem->Equals("Caballero"))
-			 {
-				 primerCaballero();
-			 }
-			 if (comboBox1->SelectedItem->Equals("Luchador"))
-			 {
-				 primerLuchador();
-			 }
-			 if (comboBox1->SelectedItem->Equals("Mercenario"))
-			 {
-				 primerMercenario();
-			 }
-			 if (comboBox1->SelectedItem->Equals("Mirmidon"))
-			 {
-				 primerMirmidor();
-			 }
+			 button9->Enabled = true;
+			 button10->Enabled = true;
+			 moverseOPosicionarse();
 
 }
 private: System::Void Juego_Load(System::Object^  sender, System::EventArgs^  e) {
+			 button9->Enabled = false;
+			 button10->Enabled = false;
 			 nuevoJinete("Gildarts");
 			 nuevoJinete("Agro");
 			 nuevoJinete("Wander");
@@ -907,6 +971,9 @@ private: System::Void Juego_Load(System::Object^  sender, System::EventArgs^  e)
 			 mostrar4();
 			 mostrar5();
 			 */
+}
+private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
+			 moverseOPosicionarse();
 }
 };
 }
