@@ -278,7 +278,7 @@ namespace SeleccionYJuego {
 			this->pictureBox1->Location = System::Drawing::Point(6, 19);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(219, 191);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
 			// 
@@ -317,6 +317,7 @@ namespace SeleccionYJuego {
 			this->button16->TabIndex = 25;
 			this->button16->Text = L"Seleccionar";
 			this->button16->UseVisualStyleBackColor = true;
+			this->button16->Click += gcnew System::EventHandler(this, &Juego::button16_Click);
 			// 
 			// radioButton4
 			// 
@@ -337,6 +338,7 @@ namespace SeleccionYJuego {
 			this->button15->TabIndex = 24;
 			this->button15->Text = L"Next Skin";
 			this->button15->UseVisualStyleBackColor = true;
+			this->button15->Click += gcnew System::EventHandler(this, &Juego::button15_Click);
 			// 
 			// radioButton6
 			// 
@@ -380,6 +382,7 @@ namespace SeleccionYJuego {
 			this->button12->TabIndex = 25;
 			this->button12->Text = L"Seleccionar";
 			this->button12->UseVisualStyleBackColor = true;
+			this->button12->Click += gcnew System::EventHandler(this, &Juego::button12_Click);
 			// 
 			// button11
 			// 
@@ -389,6 +392,7 @@ namespace SeleccionYJuego {
 			this->button11->TabIndex = 24;
 			this->button11->Text = L"Next Character";
 			this->button11->UseVisualStyleBackColor = true;
+			this->button11->Click += gcnew System::EventHandler(this, &Juego::button11_Click);
 			// 
 			// comboBox2
 			// 
@@ -401,6 +405,7 @@ namespace SeleccionYJuego {
 			this->comboBox2->Name = L"comboBox2";
 			this->comboBox2->Size = System::Drawing::Size(118, 21);
 			this->comboBox2->TabIndex = 0;
+			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &Juego::comboBox2_SelectedIndexChanged);
 			// 
 			// listBox2
 			// 
@@ -412,11 +417,15 @@ namespace SeleccionYJuego {
 			// 
 			// pictureBox2
 			// 
+			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
 			this->pictureBox2->Location = System::Drawing::Point(157, 19);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(218, 191);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox2->TabIndex = 0;
 			this->pictureBox2->TabStop = false;
+			this->pictureBox2->Click += gcnew System::EventHandler(this, &Juego::pictureBox2_Click);
 			// 
 			// button1
 			// 
@@ -464,39 +473,47 @@ namespace SeleccionYJuego {
 			// 
 			// button5
 			// 
+			this->button5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->button5->Location = System::Drawing::Point(604, 33);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(79, 64);
 			this->button5->TabIndex = 17;
 			this->button5->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &Juego::button5_Click);
 			// 
 			// button6
 			// 
+			this->button6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->button6->Location = System::Drawing::Point(604, 132);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(79, 64);
 			this->button6->TabIndex = 18;
 			this->button6->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &Juego::button6_Click);
 			// 
 			// button7
 			// 
+			this->button7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->button7->Location = System::Drawing::Point(604, 274);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(79, 64);
 			this->button7->TabIndex = 19;
 			this->button7->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &Juego::button7_Click);
 			// 
 			// button8
 			// 
+			this->button8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->button8->Location = System::Drawing::Point(604, 385);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(79, 64);
 			this->button8->TabIndex = 20;
 			this->button8->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			this->button8->UseVisualStyleBackColor = true;
+			this->button8->Click += gcnew System::EventHandler(this, &Juego::button8_Click);
 			// 
 			// label2
 			// 
@@ -551,8 +568,9 @@ namespace SeleccionYJuego {
 		};
 		static Skin^PTR6 = nullptr;
 		static Skin^SkinPlayer = nullptr;
+		static Skin^SkinPlayer2 = nullptr;
+		static Skin^SkinSelecionado2 = nullptr;
 		static Skin^SkinSelecionado = nullptr;
-
 		//////////////////////////////////////////////DECLARANDO LAS CARACTERISTICAS DE LOS PERSONAJES
 		//Jinete
 		ref struct Jinete
@@ -625,8 +643,6 @@ namespace SeleccionYJuego {
 			Mirmidon^Link;
 		};
 		//Jugador
-
-
 		//Listas PTR y nodos auxiliares
 		static Jinete^PTR1 = nullptr;
 		static Jinete^JinAux = nullptr;
@@ -646,139 +662,272 @@ namespace SeleccionYJuego {
 		//Contadores de personajes por lista
 		int ContJin = 0, ContCab = 0, ContLuch = 0, ContMer = 0, ContMir = 0, ContSkin=0;
 		//Booleanos de casillas ocupadas
-		bool Casilla1 = false, Casilla2 = false, Casilla3 = false, Casilla4 = false;
+		bool Casilla1 = false, Casilla2 = false, Casilla3 = false, Casilla4 = false, Casilla5 = false, Casilla6 = false, Casilla7 = false, Casilla8 = false;
 
 		////////////////MOSTRAR INFORMACION DEL PRIMER PERSONAJE DE LA LISTA (ESTO SUCEDE CUANDO SE DA CLICK A ALGUN ITEM DEL COMBOBOX)
 		////////////////SIGUIENTE SKIN
-		void siguienteSkin(){
-			if (SkinPlayer==nullptr)
+		void siguienteSkin(int Jugador){
+			if (Jugador == 1)
 			{
-				SkinPlayer = PTR6;
+				if (SkinPlayer == nullptr)
+				{
+					SkinPlayer = PTR6;
+				}
+				else
+				{
+					SkinPlayer = SkinPlayer->Link;
+				}
+				listBox1->Items->Clear();
+				listBox1->Items->Add("SKIN: " + SkinPlayer->Nombre);
+				pictureBox1->Load(SkinPlayer->URL);
 			}
 			else
 			{
-				SkinPlayer = SkinPlayer->Link;
+				if (SkinPlayer2 == nullptr)
+				{
+					SkinPlayer2 = PTR6;
+				}
+				else
+				{
+					SkinPlayer2 = SkinPlayer2->Link;
+				}
+				listBox2->Items->Clear();
+				listBox2->Items->Add("SKIN: " + SkinPlayer2->Nombre);
+				pictureBox2->Load(SkinPlayer2->URL);
 			}
-			listBox1->Items->Clear();
-			listBox1->Items->Add("SKIN: " + SkinPlayer->Nombre);
-			pictureBox1->Load(SkinPlayer->URL);
+			
 		}
-		
-
 		////////////////ESTO TAMBIEN SIRVE PARA CUANDO PASAN AL SIGUIENTE PERSONAJE DE ALGUNA DE LAS UNIDADES
 		///////////////PARA JINETE
-		void siguienteJinete(){
-			if (JinAux == nullptr)
+		void siguienteJinete(int Jugador){
+			if (Jugador==1)
 			{
-				JinAux = PTR1;
+				if (JinAux == nullptr)
+				{
+					JinAux = PTR1;
+				}
+				else
+				{
+					JinAux = JinAux->Link;
+				}
+				listBox1->Items->Clear();
+				listBox1->Items->Add("Personaje: " + JinAux->Nombre);
+				listBox1->Items->Add("Puntos de Vida: " + JinAux->Vida + " LP");
+				listBox1->Items->Add("Ataque: " + JinAux->Ataque + " Puntos");
+				listBox1->Items->Add("Habilidad: " + JinAux->Habilidad);
+				listBox1->Items->Add("Velocidad: " + JinAux->Velocidad);
+				listBox1->Items->Add("Suerte: " + JinAux->Suerte);
+				listBox1->Items->Add("Defensa: " + JinAux->Defensa + " Puntos");
+				listBox1->Items->Add("Capacidad de Movimiento: " + JinAux->Movimiento + " Casillas");
+				pictureBox1->Load(JinAux->ImagenURL);
 			}
 			else
 			{
-				JinAux = JinAux->Link;
+				if (JinAux == nullptr)
+				{
+					JinAux = PTR1;
+				}
+				else
+				{
+					JinAux = JinAux->Link;
+				}
+				listBox2->Items->Clear();
+				listBox2->Items->Add("Personaje: " + JinAux->Nombre);
+				listBox2->Items->Add("Puntos de Vida: " + JinAux->Vida + " LP");
+				listBox2->Items->Add("Ataque: " + JinAux->Ataque + " Puntos");
+				listBox2->Items->Add("Habilidad: " + JinAux->Habilidad);
+				listBox2->Items->Add("Velocidad: " + JinAux->Velocidad);
+				listBox2->Items->Add("Suerte: " + JinAux->Suerte);
+				listBox2->Items->Add("Defensa: " + JinAux->Defensa + " Puntos");
+				listBox2->Items->Add("Capacidad de Movimiento: " + JinAux->Movimiento + " Casillas");
+				pictureBox2->Load(JinAux->ImagenURL);
 			}
-			listBox1->Items->Clear();
-			listBox1->Items->Add("Personaje: " + JinAux->Nombre);
-			listBox1->Items->Add("Puntos de Vida: " + JinAux->Vida + " LP");
-			listBox1->Items->Add("Ataque: " + JinAux->Ataque + " Puntos");
-			listBox1->Items->Add("Habilidad: " + JinAux->Habilidad);
-			listBox1->Items->Add("Velocidad: " + JinAux->Velocidad);
-			listBox1->Items->Add("Suerte: " + JinAux->Suerte);
-			listBox1->Items->Add("Defensa: " + JinAux->Defensa + " Puntos");
-			listBox1->Items->Add("Capacidad de Movimiento: " + JinAux->Movimiento + " Casillas");
-			pictureBox1->Load(JinAux->ImagenURL);
+			
 		}
 		////////////PARA CABALLERO
-		void siguienteCaballero(){
-			if (CabAux == nullptr)
+		void siguienteCaballero(int Jugador){
+			if (Jugador==1)
 			{
-				CabAux = PTR2;
+				if (CabAux == nullptr)
+				{
+					CabAux = PTR2;
+				}
+				else
+				{
+					CabAux = CabAux->Link;
+				}
+				listBox1->Items->Clear();
+				listBox1->Items->Add("Personaje: " + CabAux->Nombre);
+				listBox1->Items->Add("Puntos de Vida: " + CabAux->Vida + " LP");
+				listBox1->Items->Add("Ataque: " + CabAux->Ataque + " Puntos");
+				listBox1->Items->Add("Habilidad: " + CabAux->Habilidad);
+				listBox1->Items->Add("Velocidad: " + CabAux->Velocidad);
+				listBox1->Items->Add("Suerte: " + CabAux->Suerte);
+				listBox1->Items->Add("Defensa: " + CabAux->Defensa + " Puntos");
+				listBox1->Items->Add("Capacidad de Movimiento: " + CabAux->Movimiento + " Casillas");
+				pictureBox1->Load(CabAux->ImagenURL);
 			}
 			else
 			{
-				CabAux = CabAux->Link;
+				if (CabAux == nullptr)
+				{
+					CabAux = PTR2;
+				}
+				else
+				{
+					CabAux = CabAux->Link;
+				}
+				listBox2->Items->Clear();
+				listBox2->Items->Add("Personaje: " + CabAux->Nombre);
+				listBox2->Items->Add("Puntos de Vida: " + CabAux->Vida + " LP");
+				listBox2->Items->Add("Ataque: " + CabAux->Ataque + " Puntos");
+				listBox2->Items->Add("Habilidad: " + CabAux->Habilidad);
+				listBox2->Items->Add("Velocidad: " + CabAux->Velocidad);
+				listBox2->Items->Add("Suerte: " + CabAux->Suerte);
+				listBox2->Items->Add("Defensa: " + CabAux->Defensa + " Puntos");
+				listBox2->Items->Add("Capacidad de Movimiento: " + CabAux->Movimiento + " Casillas");
+				pictureBox2->Load(CabAux->ImagenURL);
 			}
-			listBox1->Items->Clear();
-			listBox1->Items->Add("Personaje: " + CabAux->Nombre);
-			listBox1->Items->Add("Puntos de Vida: " + CabAux->Vida + " LP");
-			listBox1->Items->Add("Ataque: " + CabAux->Ataque + " Puntos");
-			listBox1->Items->Add("Habilidad: " + CabAux->Habilidad);
-			listBox1->Items->Add("Velocidad: " + CabAux->Velocidad);
-			listBox1->Items->Add("Suerte: " + CabAux->Suerte);
-			listBox1->Items->Add("Defensa: " + CabAux->Defensa + " Puntos");
-			listBox1->Items->Add("Capacidad de Movimiento: " + CabAux->Movimiento + " Casillas");
-			pictureBox1->Load(CabAux->ImagenURL);
+			
 		}
 		////////////PARA LUCHADOR
-		void siguienteLuchador(){
-			if (LuchAux == nullptr)
+		void siguienteLuchador(int Jugador){
+			if (Jugador == 1)
 			{
-				LuchAux = PTR3;
+				if (LuchAux == nullptr)
+				{
+					LuchAux = PTR3;
+				}
+				else
+				{
+					LuchAux = LuchAux->Link;
+				}
+				listBox1->Items->Clear();
+				listBox1->Items->Add("Personaje: " + LuchAux->Nombre);
+				listBox1->Items->Add("Puntos de Vida: " + LuchAux->Vida + " LP");
+				listBox1->Items->Add("Ataque: " + LuchAux->Ataque + " Puntos");
+				listBox1->Items->Add("Habilidad: " + LuchAux->Habilidad);
+				listBox1->Items->Add("Velocidad: " + LuchAux->Velocidad);
+				listBox1->Items->Add("Suerte: " + LuchAux->Suerte);
+				listBox1->Items->Add("Defensa: " + LuchAux->Defensa + " Puntos");
+				listBox1->Items->Add("Capacidad de Movimiento: " + LuchAux->Movimiento + " Casillas");
+				pictureBox1->Load(LuchAux->ImagenURL);
 			}
 			else
 			{
-				LuchAux = LuchAux->Link;
+				if (LuchAux == nullptr)
+				{
+					LuchAux = PTR3;
+				}
+				else
+				{
+					LuchAux = LuchAux->Link;
+				}
+				listBox2->Items->Clear();
+				listBox2->Items->Add("Personaje: " + LuchAux->Nombre);
+				listBox2->Items->Add("Puntos de Vida: " + LuchAux->Vida + " LP");
+				listBox2->Items->Add("Ataque: " + LuchAux->Ataque + " Puntos");
+				listBox2->Items->Add("Habilidad: " + LuchAux->Habilidad);
+				listBox2->Items->Add("Velocidad: " + LuchAux->Velocidad);
+				listBox2->Items->Add("Suerte: " + LuchAux->Suerte);
+				listBox2->Items->Add("Defensa: " + LuchAux->Defensa + " Puntos");
+				listBox2->Items->Add("Capacidad de Movimiento: " + LuchAux->Movimiento + " Casillas");
+				pictureBox2->Load(LuchAux->ImagenURL);
 			}
-			listBox1->Items->Clear();
-			listBox1->Items->Add("Personaje: " + LuchAux->Nombre);
-			listBox1->Items->Add("Puntos de Vida: " + LuchAux->Vida + " LP");
-			listBox1->Items->Add("Ataque: " + LuchAux->Ataque + " Puntos");
-			listBox1->Items->Add("Habilidad: " + LuchAux->Habilidad);
-			listBox1->Items->Add("Velocidad: " + LuchAux->Velocidad);
-			listBox1->Items->Add("Suerte: " + LuchAux->Suerte);
-			listBox1->Items->Add("Defensa: " + LuchAux->Defensa + " Puntos");
-			listBox1->Items->Add("Capacidad de Movimiento: " + LuchAux->Movimiento + " Casillas");
-			pictureBox1->Load(LuchAux->ImagenURL);
+			
 		}
 		////////////PARA MERCENARIO
-		void siguienteMercenario(){
-			if (MerAux == nullptr)
+		void siguienteMercenario(int Jugador){
+			if (Jugador == 1)
 			{
-				MerAux = PTR4;
+				if (MerAux == nullptr)
+				{
+					MerAux = PTR4;
+				}
+				else
+				{
+					MerAux = MerAux->Link;
+				}
+				listBox1->Items->Clear();
+				listBox1->Items->Add("Personaje: " + MerAux->Nombre);
+				listBox1->Items->Add("Puntos de Vida: " + MerAux->Vida + " LP");
+				listBox1->Items->Add("Ataque: " + MerAux->Ataque + " Puntos");
+				listBox1->Items->Add("Habilidad: " + MerAux->Habilidad);
+				listBox1->Items->Add("Velocidad: " + MerAux->Velocidad);
+				listBox1->Items->Add("Suerte: " + MerAux->Suerte);
+				listBox1->Items->Add("Defensa: " + MerAux->Defensa + " Puntos");
+				listBox1->Items->Add("Capacidad de Movimiento: " + MerAux->Movimiento + " Casillas");
+				pictureBox1->Load(MerAux->ImagenURL);
 			}
 			else
 			{
-				MerAux = MerAux->Link;
+				if (MerAux == nullptr)
+				{
+					MerAux = PTR4;
+				}
+				else
+				{
+					MerAux = MerAux->Link;
+				}
+				listBox2->Items->Clear();
+				listBox2->Items->Add("Personaje: " + MerAux->Nombre);
+				listBox2->Items->Add("Puntos de Vida: " + MerAux->Vida + " LP");
+				listBox2->Items->Add("Ataque: " + MerAux->Ataque + " Puntos");
+				listBox2->Items->Add("Habilidad: " + MerAux->Habilidad);
+				listBox2->Items->Add("Velocidad: " + MerAux->Velocidad);
+				listBox2->Items->Add("Suerte: " + MerAux->Suerte);
+				listBox2->Items->Add("Defensa: " + MerAux->Defensa + " Puntos");
+				listBox2->Items->Add("Capacidad de Movimiento: " + MerAux->Movimiento + " Casillas");
+				pictureBox2->Load(MerAux->ImagenURL);
 			}
-			listBox1->Items->Clear();
-			listBox1->Items->Add("Personaje: " + MerAux->Nombre);
-			listBox1->Items->Add("Puntos de Vida: " + MerAux->Vida + " LP");
-			listBox1->Items->Add("Ataque: " + MerAux->Ataque + " Puntos");
-			listBox1->Items->Add("Habilidad: " + MerAux->Habilidad);
-			listBox1->Items->Add("Velocidad: " + MerAux->Velocidad);
-			listBox1->Items->Add("Suerte: " + MerAux->Suerte);
-			listBox1->Items->Add("Defensa: " + MerAux->Defensa + " Puntos");
-			listBox1->Items->Add("Capacidad de Movimiento: " + MerAux->Movimiento + " Casillas");
-			pictureBox1->Load(MerAux->ImagenURL);
+			
 		}
 		////////////PARA MIRMIDOR
-		void siguienteMirmidon(){
-			if (MirAux == nullptr)
+		void siguienteMirmidon(int Jugador){
+			if (Jugador == 1)
 			{
-				MirAux = PTR5;
+				if (MirAux == nullptr)
+				{
+					MirAux = PTR5;
+				}
+				else
+				{
+					MirAux = MirAux->Link;
+				}
+				listBox1->Items->Clear();
+				listBox1->Items->Add("Personaje: " + MirAux->Nombre);
+				listBox1->Items->Add("Puntos de Vida: " + MirAux->Vida + " LP");
+				listBox1->Items->Add("Ataque: " + MirAux->Ataque + " Puntos");
+				listBox1->Items->Add("Habilidad: " + MirAux->Habilidad);
+				listBox1->Items->Add("Velocidad: " + MirAux->Velocidad);
+				listBox1->Items->Add("Suerte: " + MirAux->Suerte);
+				listBox1->Items->Add("Defensa: " + MirAux->Defensa + " Puntos");
+				listBox1->Items->Add("Capacidad de Movimiento: " + MirAux->Movimiento + " Casillas");
+				pictureBox1->Load(MirAux->ImagenURL);
 			}
 			else
 			{
-				MirAux = MirAux->Link;
+				if (MirAux == nullptr)
+				{
+					MirAux = PTR5;
+				}
+				else
+				{
+					MirAux = MirAux->Link;
+				}
+				listBox2->Items->Clear();
+				listBox2->Items->Add("Personaje: " + MirAux->Nombre);
+				listBox2->Items->Add("Puntos de Vida: " + MirAux->Vida + " LP");
+				listBox2->Items->Add("Ataque: " + MirAux->Ataque + " Puntos");
+				listBox2->Items->Add("Habilidad: " + MirAux->Habilidad);
+				listBox2->Items->Add("Velocidad: " + MirAux->Velocidad);
+				listBox2->Items->Add("Suerte: " + MirAux->Suerte);
+				listBox2->Items->Add("Defensa: " + MirAux->Defensa + " Puntos");
+				listBox2->Items->Add("Capacidad de Movimiento: " + MirAux->Movimiento + " Casillas");
+				pictureBox2->Load(MirAux->ImagenURL);
 			}
-			listBox1->Items->Clear();
-			listBox1->Items->Add("Personaje: " + MirAux->Nombre);
-			listBox1->Items->Add("Puntos de Vida: " + MirAux->Vida + " LP");
-			listBox1->Items->Add("Ataque: " + MirAux->Ataque + " Puntos");
-			listBox1->Items->Add("Habilidad: " + MirAux->Habilidad);
-			listBox1->Items->Add("Velocidad: " + MirAux->Velocidad);
-			listBox1->Items->Add("Suerte: " + MirAux->Suerte);
-			listBox1->Items->Add("Defensa: " + MirAux->Defensa + " Puntos");
-			listBox1->Items->Add("Capacidad de Movimiento: " + MirAux->Movimiento + " Casillas");
-			pictureBox1->Load(MirAux->ImagenURL);
+			
 		}
-
-
-
-
-
-
-
-
 
 
 		/////////////////////////////////////////////////////CON LISTA ENLAZADA CIRCULAR
@@ -809,7 +958,6 @@ namespace SeleccionYJuego {
 			}
 
 		}
-
 		//////////////////////////CREANDO NUEVO PERSONAJE
 		//JINETE
 		void nuevoJinete(String^Name, String^URL){
@@ -941,205 +1089,399 @@ namespace SeleccionYJuego {
 				P = nullptr;
 			}
 		}
+
+
 		////////////////SUBRUTINA PARA CAMBIAR INFORMACION DE PERSONAJE CADA VEZ QUE SE SELECCIONA UNA UNIDAD EN EL COMBOBOX
+		////////PARA COMBOBOX1
 		void moverseOPosicionarse(){
 			if (comboBox1->SelectedItem->Equals("Jinete"))
 			{
-				siguienteJinete();
+				siguienteJinete(1);
 			}
 			if (comboBox1->SelectedItem->Equals("Caballero"))
 			{
-				siguienteCaballero();
+				siguienteCaballero(1);
 			}
 			if (comboBox1->SelectedItem->Equals("Luchador"))
 			{
-				siguienteLuchador();
+				siguienteLuchador(1);
 			}
 			if (comboBox1->SelectedItem->Equals("Mercenario"))
 			{
-				siguienteMercenario();
+				siguienteMercenario(1);
 			}
 			if (comboBox1->SelectedItem->Equals("Mirmidon"))
 			{
-				siguienteMirmidon();
+				siguienteMirmidon(1);
 			}
 		}
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		///////PARA COMBOBOX2
+		void moverseOPosicionarse2(){
+			if (comboBox2->SelectedItem->Equals("Jinete"))
+			{
+				siguienteJinete(2);
+			}
+			if (comboBox2->SelectedItem->Equals("Caballero"))
+			{
+				siguienteCaballero(2);
+			}
+			if (comboBox2->SelectedItem->Equals("Luchador"))
+			{
+				siguienteLuchador(2);
+			}
+			if (comboBox2->SelectedItem->Equals("Mercenario"))
+			{
+				siguienteMercenario(2);
+			}
+			if (comboBox2->SelectedItem->Equals("Mirmidon"))
+			{
+				siguienteMirmidon(2);
+			}
+		}
 		////////////////SELECCION DE SKINS
-		void seleccionarSkin(){
-			SkinSelecionado = SkinPlayer;
-			Skin^P = gcnew Skin();
-			P = PTR6;
-			while (P->Link != SkinPlayer)
+		void seleccionarSkin(int Jugador){
+			if (Jugador == 1)
 			{
-				P = P->Link;
-			}
-			if (SkinPlayer == PTR6)
-			{
-				PTR6 = PTR6->Link;
-			}
-			P->Link = SkinPlayer->Link;
-			///Poniendo el arma en el nodo
-			if (radioButton1->Checked == true)
-			{
-				SkinPlayer->Arma = radioButton1->Text;
-			}
-			else
-			{
-				if (radioButton2->Checked == true)
-				{
-					SkinPlayer->Arma = radioButton2->Text;
-				}
-				else
-				{
-					SkinPlayer->Arma = radioButton3->Text;
-				}
-			}
-			button4->Enabled = true;
-			button4->BackgroundImage = Image::FromFile(SkinPlayer->URL);
-			button4->Text = SkinPlayer->Nombre;
-			MessageBox::Show("Seleccionaste el arma: '" + SkinPlayer->Arma + "' y el skin: '" + SkinPlayer->Nombre + "'");
-			Casilla4 = true;
-			P = nullptr;
-			SkinPlayer = nullptr;
-		}
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		////////////////SUBRUTINA PARA SELECCIONAR ALGUN PERSONAJE 
-		void PersonajeSeleccionado(int Casilla){
-			if (comboBox1->SelectedItem->Equals("Jinete"))
-			{
-				JinSelec = JinAux;
-				Jinete^ P = gcnew Jinete();
-				P = PTR1;
-				while (P->Link != JinAux)
+				SkinSelecionado = SkinPlayer;
+				Skin^P = gcnew Skin();
+				P = PTR6;
+				while (P->Link != SkinPlayer)
 				{
 					P = P->Link;
 				}
-				if (JinAux == PTR1)
+				if (SkinPlayer == PTR6)
 				{
-					PTR1 = PTR1->Link;
+					PTR6 = PTR6->Link;
 				}
-				MostrarEnBotonesJIN(Casilla);
-				P->Link = JinAux->Link;
-				JinAux = nullptr;
-				comboBox1->Items->Remove("Jinete");
-				button9->Enabled = false;
-				button10->Enabled = false;
+				P->Link = SkinPlayer->Link;
+				///Poniendo el arma en el nodo
+				if (radioButton1->Checked == true)
+				{
+					SkinPlayer->Arma = radioButton1->Text;
+				}
+				else
+				{
+					if (radioButton2->Checked == true)
+					{
+						SkinPlayer->Arma = radioButton2->Text;
+					}
+					else
+					{
+						SkinPlayer->Arma = radioButton3->Text;
+					}
+				}
+				button4->Enabled = true;
+				button4->BackgroundImage = Image::FromFile(SkinPlayer->URL);
+				button4->Text = SkinPlayer->Nombre;
+				MessageBox::Show("Seleccionaste el arma: '" + SkinPlayer->Arma + "' y el skin: '" + SkinPlayer->Nombre + "'");
+				Casilla4 = true;
+				P = nullptr;
+				SkinPlayer = nullptr;
 			}
 			else
 			{
-				if (comboBox1->SelectedItem->Equals("Caballero"))
+				SkinSelecionado2 = SkinPlayer2;
+				Skin^P = gcnew Skin();
+				P = PTR6;
+				while (P->Link != SkinPlayer2)
 				{
-					CabSelec = CabAux;
-					Caballero^ P = gcnew Caballero();
-					P = PTR2;
-					while (P->Link != CabAux)
+					P = P->Link;
+				}
+				if (SkinPlayer2 == PTR6)
+				{
+					PTR6 = PTR6->Link;
+				}
+				P->Link = SkinPlayer2->Link;
+				///Poniendo el arma en el nodo
+				if (radioButton4->Checked == true)
+				{
+					SkinPlayer2->Arma = radioButton4->Text;
+				}
+				else
+				{
+					if (radioButton5->Checked == true)
+					{
+						SkinPlayer2->Arma = radioButton5->Text;
+					}
+					else
+					{
+						SkinPlayer2->Arma = radioButton6->Text;
+					}
+				}
+				button8->Enabled = true;
+				button8->BackgroundImage = Image::FromFile(SkinPlayer2->URL);
+				button8->Text = SkinPlayer2->Nombre;
+				MessageBox::Show("Seleccionaste el arma: '" + SkinPlayer2->Arma + "' y el skin: '" + SkinPlayer2->Nombre + "'");
+				Casilla8 = true;
+				P = nullptr;
+				SkinPlayer2 = nullptr;
+			}
+			
+		}
+		////////////////SUBRUTINA PARA SELECCIONAR ALGUN PERSONAJE 
+		void PersonajeSeleccionado(int Casilla){
+			if (Casilla >= 1 && Casilla <= 3)
+			{
+				if (comboBox1->SelectedItem->Equals("Jinete"))
+				{
+					JinSelec = JinAux;
+					Jinete^ P = gcnew Jinete();
+					P = PTR1;
+					while (P->Link != JinAux)
 					{
 						P = P->Link;
 					}
-					if (CabAux == PTR2)
+					if (JinAux == PTR1)
 					{
-						PTR2 = PTR2->Link;
+						PTR1 = PTR1->Link;
 					}
-					MostrarEnBotonesCAB(Casilla);
-					P->Link = CabAux->Link;
-					CabAux = nullptr;
-					comboBox1->Items->Remove("Caballero");
+					MostrarEnBotonesJIN(Casilla);
+					P->Link = JinAux->Link;
+					JinAux = nullptr;
+					comboBox1->Items->Remove("Jinete");
 					button9->Enabled = false;
 					button10->Enabled = false;
 				}
 				else
 				{
-					if (comboBox1->SelectedItem->Equals("Luchador"))
+					if (comboBox1->SelectedItem->Equals("Caballero"))
 					{
-						LuchSelec = LuchAux;
-						Luchador^ P = gcnew Luchador();
-						P = PTR3;
-						while (P->Link != LuchAux)
+						CabSelec = CabAux;
+						Caballero^ P = gcnew Caballero();
+						P = PTR2;
+						while (P->Link != CabAux)
 						{
 							P = P->Link;
 						}
-						if (LuchAux == PTR3)
+						if (CabAux == PTR2)
 						{
-							PTR3 = PTR3->Link;
+							PTR2 = PTR2->Link;
 						}
-						MostrarEnBotonesLUCH(Casilla);
-						P->Link = LuchAux->Link;
-						LuchAux = nullptr;
-						comboBox1->Items->Remove("Luchador");
+						MostrarEnBotonesCAB(Casilla);
+						P->Link = CabAux->Link;
+						CabAux = nullptr;
+						comboBox1->Items->Remove("Caballero");
 						button9->Enabled = false;
 						button10->Enabled = false;
 					}
 					else
 					{
-						if (comboBox1->SelectedItem->Equals("Mercenario"))
+						if (comboBox1->SelectedItem->Equals("Luchador"))
 						{
-							MerSelec = MerAux;
-							Mercenario^ P = gcnew Mercenario();
-							P = PTR4;
-							while (P->Link != MerAux)
+							LuchSelec = LuchAux;
+							Luchador^ P = gcnew Luchador();
+							P = PTR3;
+							while (P->Link != LuchAux)
 							{
 								P = P->Link;
 							}
-							if (MerAux == PTR4)
+							if (LuchAux == PTR3)
 							{
-								PTR4 = PTR4->Link;
+								PTR3 = PTR3->Link;
 							}
-							MostrarEnBotonesMER(Casilla);
-							P->Link = MerAux->Link;
-							MerAux = nullptr;
-							comboBox1->Items->Remove("Mercenario");
+							MostrarEnBotonesLUCH(Casilla);
+							P->Link = LuchAux->Link;
+							LuchAux = nullptr;
+							comboBox1->Items->Remove("Luchador");
 							button9->Enabled = false;
 							button10->Enabled = false;
 						}
 						else
 						{
-							if (comboBox1->SelectedItem->Equals("Mirmidon"))
+							if (comboBox1->SelectedItem->Equals("Mercenario"))
 							{
-								MirSelec = MirAux;
-								Mirmidon^ P = gcnew Mirmidon();
-								P = PTR5;
-								while (P->Link != MirAux)
+								MerSelec = MerAux;
+								Mercenario^ P = gcnew Mercenario();
+								P = PTR4;
+								while (P->Link != MerAux)
 								{
 									P = P->Link;
 								}
-								if (MirAux == PTR5)
+								if (MerAux == PTR4)
 								{
-									PTR5 = PTR5->Link;
+									PTR4 = PTR4->Link;
 								}
-								MostrarEnBotonesMIR(Casilla);
-								P->Link = MirAux->Link;
-								MirAux = nullptr;
-								comboBox1->Items->Remove("Mirmidon");
+								MostrarEnBotonesMER(Casilla);
+								P->Link = MerAux->Link;
+								MerAux = nullptr;
+								comboBox1->Items->Remove("Mercenario");
 								button9->Enabled = false;
 								button10->Enabled = false;
+							}
+							else
+							{
+								if (comboBox1->SelectedItem->Equals("Mirmidon"))
+								{
+									MirSelec = MirAux;
+									Mirmidon^ P = gcnew Mirmidon();
+									P = PTR5;
+									while (P->Link != MirAux)
+									{
+										P = P->Link;
+									}
+									if (MirAux == PTR5)
+									{
+										PTR5 = PTR5->Link;
+									}
+									MostrarEnBotonesMIR(Casilla);
+									P->Link = MirAux->Link;
+									MirAux = nullptr;
+									comboBox1->Items->Remove("Mirmidon");
+									button9->Enabled = false;
+									button10->Enabled = false;
+								}
 							}
 						}
 					}
 				}
-			}
-			if ((Casilla1 == true) && (Casilla2 == true) && (Casilla3 == true))
-			{
-				if (Casilla4 == false)
+				if ((Casilla1 == true) && (Casilla2 == true) && (Casilla3 == true))
 				{
-					comboBox1->Enabled = false;
-					button13->Enabled = true;
-					MessageBox::Show("Ahora selecciona tu skin");
+					if (Casilla4 == false)
+					{
+						comboBox1->Enabled = false;
+						button13->Enabled = true;
+						MessageBox::Show("Ahora selecciona tu skin");
+					}
 				}
 			}
+			///PARA JUGADOR 2
+			else
+			{
+				if (comboBox2->SelectedItem->Equals("Jinete"))
+				{
+					JinSelec = JinAux;
+					Jinete^ P = gcnew Jinete();
+					P = PTR1;
+					while (P->Link != JinAux)
+					{
+						P = P->Link;
+					}
+					if (JinAux == PTR1)
+					{
+						PTR1 = PTR1->Link;
+					}
+					MostrarEnBotonesJIN(Casilla);
+					P->Link = JinAux->Link;
+					JinAux = nullptr;
+					comboBox2->Items->Remove("Jinete");
+					button11->Enabled = false;
+					button12->Enabled = false;
+				}
+				else
+				{
+					if (comboBox2->SelectedItem->Equals("Caballero"))
+					{
+						CabSelec = CabAux;
+						Caballero^ P = gcnew Caballero();
+						P = PTR2;
+						while (P->Link != CabAux)
+						{
+							P = P->Link;
+						}
+						if (CabAux == PTR2)
+						{
+							PTR2 = PTR2->Link;
+						}
+						MostrarEnBotonesCAB(Casilla);
+						P->Link = CabAux->Link;
+						CabAux = nullptr;
+						comboBox2->Items->Remove("Caballero");
+						button11->Enabled = false;
+						button12->Enabled = false;
+					}
+					else
+					{
+						if (comboBox2->SelectedItem->Equals("Luchador"))
+						{
+							LuchSelec = LuchAux;
+							Luchador^ P = gcnew Luchador();
+							P = PTR3;
+							while (P->Link != LuchAux)
+							{
+								P = P->Link;
+							}
+							if (LuchAux == PTR3)
+							{
+								PTR3 = PTR3->Link;
+							}
+							MostrarEnBotonesLUCH(Casilla);
+							P->Link = LuchAux->Link;
+							LuchAux = nullptr;
+							comboBox2->Items->Remove("Luchador");
+							button11->Enabled = false;
+							button12->Enabled = false;
+						}
+						else
+						{
+							if (comboBox2->SelectedItem->Equals("Mercenario"))
+							{
+								MerSelec = MerAux;
+								Mercenario^ P = gcnew Mercenario();
+								P = PTR4;
+								while (P->Link != MerAux)
+								{
+									P = P->Link;
+								}
+								if (MerAux == PTR4)
+								{
+									PTR4 = PTR4->Link;
+								}
+								MostrarEnBotonesMER(Casilla);
+								P->Link = MerAux->Link;
+								MerAux = nullptr;
+								comboBox2->Items->Remove("Mercenario");
+								button11->Enabled = false;
+								button12->Enabled = false;
+							}
+							else
+							{
+								if (comboBox2->SelectedItem->Equals("Mirmidon"))
+								{
+									MirSelec = MirAux;
+									Mirmidon^ P = gcnew Mirmidon();
+									P = PTR5;
+									while (P->Link != MirAux)
+									{
+										P = P->Link;
+									}
+									if (MirAux == PTR5)
+									{
+										PTR5 = PTR5->Link;
+									}
+									MostrarEnBotonesMIR(Casilla);
+									P->Link = MirAux->Link;
+									MirAux = nullptr;
+									comboBox2->Items->Remove("Mirmidon");
+									button11->Enabled = false;
+									button12->Enabled = false;
+								}
+							}
+						}
+					}
+				}
+				if ((Casilla5 == true) && (Casilla5 == true) && (Casilla7 == true))
+				{
+					if (Casilla8 == false)
+					{
+						comboBox2->Enabled = false;
+						button15->Enabled = true;
+						MessageBox::Show("Ahora selecciona tu skin");
+					}
+				}
+			}
+			
+
+			
 
 		}
 		String^ContenidoB1;
 		String^ContenidoB2;
 		String^ContenidoB3;
+		String^ContenidoB5;
+		String^ContenidoB6;
+		String^ContenidoB7;
+
+
 		/////////////////////////////////SUBRUTINA PARA COLOCAR PERSONAJE ELEGIDO EN UN BOTON
 		////////SI SE ELIGIO UN JINETE
 		void MostrarEnBotonesJIN(int Boton){
@@ -1170,6 +1512,39 @@ namespace SeleccionYJuego {
 						button3->BackgroundImage = Image::FromFile(JinAux->ImagenURL);
 						Casilla3 = true;
 						ContenidoB3 = "Jinete";
+					}
+					else
+					{
+						if (Boton == 5)
+						{
+							button5->Text = JinAux->Nombre;
+							button5->Enabled = true;
+							button5->BackgroundImage = Image::FromFile(JinAux->ImagenURL);
+							Casilla5 = true;
+							ContenidoB5 = "Jinete";
+						}
+						else
+						{
+							if (Boton == 6)
+							{
+								button6->Text = JinAux->Nombre;
+								button6->Enabled = true;
+								button6->BackgroundImage = Image::FromFile(JinAux->ImagenURL);
+								Casilla6 = true;
+								ContenidoB6 = "Jinete";
+							}
+							else
+							{
+								if (Boton == 7)
+								{
+									button7->Text = JinAux->Nombre;
+									button7->Enabled = true;
+									button7->BackgroundImage = Image::FromFile(JinAux->ImagenURL);
+									Casilla7 = true;
+									ContenidoB7 = "Jinete";
+								}
+							}
+						}
 					}
 				}
 			}
@@ -1205,6 +1580,39 @@ namespace SeleccionYJuego {
 						Casilla3 = true;
 						ContenidoB3 = "Caballero";
 					}
+					else
+					{
+						if (Boton == 5)
+						{
+							button5->Text = CabAux->Nombre;
+							button5->Enabled = true;
+							button5->BackgroundImage = Image::FromFile(CabAux->ImagenURL);
+							Casilla5 = true;
+							ContenidoB5 = "Caballero";
+						}
+						else
+						{
+							if (Boton == 6)
+							{
+								button6->Text = CabAux->Nombre;
+								button6->Enabled = true;
+								button6->BackgroundImage = Image::FromFile(CabAux->ImagenURL);
+								Casilla6 = true;
+								ContenidoB6 = "Caballero";
+							}
+							else
+							{
+								if (Boton == 7)
+								{
+									button7->Text = CabAux->Nombre;
+									button7->Enabled = true;
+									button7->BackgroundImage = Image::FromFile(CabAux->ImagenURL);
+									Casilla7 = true;
+									ContenidoB7 = "Caballero";
+								}
+							}
+						}
+					}
 				}
 			}
 		}
@@ -1238,11 +1646,44 @@ namespace SeleccionYJuego {
 						Casilla3 = true;
 						ContenidoB3 = "Luchador";
 					}
+					else
+					{
+						if (Boton == 5)
+						{
+							button5->Text = LuchAux->Nombre;
+							button5->Enabled = true;
+							button5->BackgroundImage = Image::FromFile(LuchAux->ImagenURL);
+							Casilla5 = true;
+							ContenidoB5 = "Luchador";
+						}
+						else
+						{
+							if (Boton == 6)
+							{
+								button6->Text = LuchAux->Nombre;
+								button6->Enabled = true;
+								button6->BackgroundImage = Image::FromFile(LuchAux->ImagenURL);
+								Casilla6 = true;
+								ContenidoB6 = "Luchador";
+							}
+							else
+							{
+								if (Boton == 7)
+								{
+									button7->Text = LuchAux->Nombre;
+									button7->Enabled = true;
+									button7->BackgroundImage = Image::FromFile(LuchAux->ImagenURL);
+									Casilla7 = true;
+									ContenidoB7 = "Luchador";
+								}
+							}
+						}
+					}
 				}
 			}
 		}
 			//////////////////SI SE ELIGIO UN MERCENARIO
-			void MostrarEnBotonesMER(int Boton){
+		void MostrarEnBotonesMER(int Boton){
 				if (Boton == 1)
 				{
 					button1->Text = MerAux->Nombre;
@@ -1271,11 +1712,44 @@ namespace SeleccionYJuego {
 							Casilla3 = true;
 							ContenidoB3 = "Mercenario";
 						}
+						else
+						{
+							if (Boton == 5)
+							{
+								button5->Text = MerAux->Nombre;
+								button5->Enabled = true;
+								button5->BackgroundImage = Image::FromFile(MerAux->ImagenURL);
+								Casilla5 = true;
+								ContenidoB5 = "Mercenario";
+							}
+							else
+							{
+								if (Boton == 6)
+								{
+									button6->Text = MerAux->Nombre;
+									button6->Enabled = true;
+									button6->BackgroundImage = Image::FromFile(MerAux->ImagenURL);
+									Casilla6 = true;
+									ContenidoB6 = "Mercenario";
+								}
+								else
+								{
+									if (Boton == 7)
+									{
+										button7->Text = MerAux->Nombre;
+										button7->Enabled = true;
+										button7->BackgroundImage = Image::FromFile(MerAux->ImagenURL);
+										Casilla7 = true;
+										ContenidoB7 = "Mercenario";
+									}
+								}
+							}
+						}
 					}
 				}
 			}
 			/////////////SI SE ELIGIO UN MIRMIDOR
-			void MostrarEnBotonesMIR(int Boton){
+		void MostrarEnBotonesMIR(int Boton){
 				if (Boton == 1)
 				{
 					button1->Text = MirAux->Nombre;
@@ -1304,26 +1778,64 @@ namespace SeleccionYJuego {
 							Casilla3 = true;
 							ContenidoB3 = "Mirmidon";
 						}
+						else
+						{
+							if (Boton == 5)
+							{
+								button5->Text = MirAux->Nombre;
+								button5->Enabled = true;
+								button5->BackgroundImage = Image::FromFile(MirAux->ImagenURL);
+								Casilla5 = true;
+								ContenidoB5 = "Mirmidon";
+							}
+							else
+							{
+								if (Boton == 6)
+								{
+									button6->Text = MirAux->Nombre;
+									button6->Enabled = true;
+									button6->BackgroundImage = Image::FromFile(MirAux->ImagenURL);
+									Casilla6 = true;
+									ContenidoB6 = "Mirmidon";
+								}
+								else
+								{
+									if (Boton == 7)
+									{
+										button7->Text = MirAux->Nombre;
+										button7->Enabled = true;
+										button7->BackgroundImage = Image::FromFile(MirAux->ImagenURL);
+										Casilla7 = true;
+										ContenidoB7 = "Mirmidon";
+									}
+								}
+							}
+						}
 					}
 				}
 			}
-			////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			//////DESELECCIONAR SKIN
-			void deSeleccionarSkin(){
-				nuevoSkin(SkinSelecionado->Nombre,SkinSelecionado->URL);
+
+
+		//////DESELECCIONAR SKIN
+		void deSeleccionarSkin(int Jugador){
+			if (Jugador == 1)
+			{
+				nuevoSkin(SkinSelecionado->Nombre, SkinSelecionado->URL);
 				button13->Enabled = true;
 				button14->Enabled = true;
 			}
+			else
+			{
+				nuevoSkin(SkinSelecionado2->Nombre, SkinSelecionado2->URL);
+				button15->Enabled = true;
+				button16->Enabled = true;
+			}
+		}
 			/////DESELECCIONAR JINETE
-			void deSeleccion(int Boton, Jinete^Jin){
+		void deSeleccion(int Boton, Jinete^Jin){
 				if (Boton == 1)
 				{
 					Casilla1 = false;
-					//button9->Enabled = true;
-				//	button10->Enabled = true;
 					nuevoJinete(JinSelec->Nombre, JinSelec->ImagenURL);
 					button1->Text = "";
 					button1->BackgroundImage = Image::FromFile("OC.jpg");
@@ -1333,9 +1845,7 @@ namespace SeleccionYJuego {
 				{
 					if (Boton == 2)
 					{
-						Casilla2 = false;
-					//	button9->Enabled = true;
-					//	button10->Enabled = true;
+						Casilla2 = false;;
 						nuevoJinete(JinSelec->Nombre, JinSelec->ImagenURL);
 						button2->Text = "";
 						button2->BackgroundImage = Image::FromFile("OC.jpg");
@@ -1343,23 +1853,89 @@ namespace SeleccionYJuego {
 					}
 					else
 					{
-						Casilla3 = false;
-					//	button9->Enabled = true;
-					//	button10->Enabled = true;
-						nuevoJinete(JinSelec->Nombre, JinSelec->ImagenURL);
-						button3->Text = "";
-						button3->BackgroundImage = Image::FromFile("OC.jpg");
-						button3->Enabled = false;
+						if (Boton == 3)
+						{
+							Casilla3 = false;
+							nuevoJinete(JinSelec->Nombre, JinSelec->ImagenURL);
+							button3->Text = "";
+							button3->BackgroundImage = Image::FromFile("OC.jpg");
+							button3->Enabled = false;
+						}
+						else
+						{
+							if (Boton == 5)
+							{
+								Casilla5 = false;
+								nuevoJinete(JinSelec->Nombre, JinSelec->ImagenURL);
+								button5->Text = "";
+								button5->BackgroundImage = Image::FromFile("OC.jpg");
+								button5->Enabled = false;
+							}
+							else
+							{
+								if (Boton == 6)
+								{
+									Casilla6 = false;
+									nuevoJinete(JinSelec->Nombre, JinSelec->ImagenURL);
+									button6->Text = "";
+									button6->BackgroundImage = Image::FromFile("OC.jpg");
+									button6->Enabled = false;
+								}
+								else
+								{
+									if (Boton == 7)
+									{
+										Casilla7 = false;
+										nuevoJinete(JinSelec->Nombre, JinSelec->ImagenURL);
+										button7->Text = "";
+										button7->BackgroundImage = Image::FromFile("OC.jpg");
+										button7->Enabled = false;
+									}
+								}
+							}
+						}
 					}
 				}
 			}
+
+
 			//////DE SELECCIONAR CABALLERO
-			void deSeleccion(int Boton, Caballero^Cab){
+		void quitarPorBoton(int Casilla, Button^ Boton){
+			switch (Casilla)
+			{
+			case 1:
+				Casilla1 = false;
+				break;
+			case 2:
+				Casilla2 = false;
+				break;
+			case 3:
+				Casilla3 = false;
+				break;
+			case 5:
+				Casilla5 = false;
+				break;
+			case 6:
+				Casilla6 = false;
+				break;
+			case 7:
+				Casilla7 = false;
+				break;
+			default:
+				break;
+			}
+			Casilla = false;
+			Boton->Text = "";
+			Boton->BackgroundImage = Image::FromFile("OC.jpg");
+			Boton->Enabled = false;
+		}
+
+
+
+		void deSeleccion(int Boton, Caballero^Cab){
 				if (Boton == 1)
 				{
 					Casilla1 = false;
-				//	button9->Enabled = true;
-				//	button10->Enabled = true;
 					nuevoCaballero(CabSelec->Nombre, CabSelec->ImagenURL);
 					button1->Text = "";
 					button1->BackgroundImage = Image::FromFile("OC.jpg");
@@ -1370,8 +1946,6 @@ namespace SeleccionYJuego {
 					if (Boton == 2)
 					{
 						Casilla2 = false;
-					//	button9->Enabled = true;
-					//	button10->Enabled = true;
 						nuevoCaballero(CabSelec->Nombre, CabSelec->ImagenURL);
 						button2->Text = "";
 						button2->BackgroundImage = Image::FromFile("OC.jpg");
@@ -1379,146 +1953,196 @@ namespace SeleccionYJuego {
 					}
 					else
 					{
-						Casilla3 = false;
-					//	button9->Enabled = true;
-					//	button10->Enabled = true;
-						nuevoCaballero(CabSelec->Nombre, CabSelec->ImagenURL);
-						button3->Text = "";
-						button3->BackgroundImage = Image::FromFile("OC.jpg");
-						button3->Enabled = false;
+						if (Boton == 3)
+						{
+							Casilla3 = false;
+							nuevoCaballero(CabSelec->Nombre, CabSelec->ImagenURL);
+							button3->Text = "";
+							button3->BackgroundImage = Image::FromFile("OC.jpg");
+							button3->Enabled = false;
+						}
+						else
+						{
+							if (Boton == 5)
+							{
+								Casilla5 = false;
+								nuevoCaballero(CabSelec->Nombre, CabSelec->ImagenURL);
+								button5->Text = "";
+								button5->BackgroundImage = Image::FromFile("OC.jpg");
+								button5->Enabled = false;
+							}
+							else
+							{
+								if (Boton == 6)
+								{
+									Casilla6 = false;
+									nuevoCaballero(CabSelec->Nombre, CabSelec->ImagenURL);
+									button6->Text = "";
+									button6->BackgroundImage = Image::FromFile("OC.jpg");
+									button6->Enabled = false;
+								}
+								else
+								{
+									if (Boton == 7)
+									{
+										Casilla7 = false;
+										nuevoCaballero(CabSelec->Nombre, CabSelec->ImagenURL);
+										button7->Text = "";
+										button7->BackgroundImage = Image::FromFile("OC.jpg");
+										button7->Enabled = false;
+									}
+								}
+							}
+						}
 					}
 				}
 			}
 			//////DE SELECCIONAR LUCHADOR
-			void deSeleccion(int Boton, Luchador^Luch){
+		void deSeleccion(int Boton, Luchador^Luch){
 				if (Boton == 1)
 				{
-					Casilla1 = false;
-				//	button9->Enabled = true;
-				//	button10->Enabled = true;
+					quitarPorBoton(1, button1);
 					nuevoLuchador(LuchSelec->Nombre, LuchSelec->ImagenURL);
-					button1->Text = "";
-					button1->BackgroundImage = Image::FromFile("OC.jpg");
-					button1->Enabled = false;
 				}
 				else
 				{
 					if (Boton == 2)
 					{
-						Casilla2 = false;
-					//	button9->Enabled = true;
-					//	button10->Enabled = true;
+						quitarPorBoton(2, button2);
 						nuevoLuchador(LuchSelec->Nombre, LuchSelec->ImagenURL);
-						button2->Text = "";
-						button2->BackgroundImage = Image::FromFile("OC.jpg");
-						button2->Enabled = false;
 					}
 					else
 					{
-						Casilla3 = false;
-				//		button9->Enabled = true;
-				//		button10->Enabled = true;
-						nuevoLuchador(LuchSelec->Nombre, LuchSelec->ImagenURL);
-						button3->Text = "";
-						button3->BackgroundImage = Image::FromFile("OC.jpg");
-						button3->Enabled = false;
+						if (Boton == 3)
+						{
+							quitarPorBoton(3, button3);
+							nuevoLuchador(LuchSelec->Nombre, LuchSelec->ImagenURL);
+						}
+						else
+						{
+							if (Boton == 5)
+							{
+								quitarPorBoton(5, button5);
+								nuevoLuchador(LuchSelec->Nombre, LuchSelec->ImagenURL);
+							}
+							else
+							{
+								if (Boton == 6)
+								{
+									quitarPorBoton(6, button6);
+									nuevoLuchador(LuchSelec->Nombre, LuchSelec->ImagenURL);
+								}
+								else
+								{
+									if (Boton == 7)
+									{
+										quitarPorBoton(7, button7);
+										nuevoLuchador(LuchSelec->Nombre, LuchSelec->ImagenURL);
+									}
+								}
+							}
+						}
 					}
 				}
 			}
 			////////DE SELECCION MERCENARIO
-			void deSeleccion(int Boton, Mercenario^Luch){
-				if (Boton == 1)
+		void deSeleccion(int Boton, Mercenario^Luch){
+			if (Boton == 1)
+			{
+				quitarPorBoton(1, button1);
+				nuevoMercenario(MerSelec->Nombre, MerSelec->ImagenURL);
+			}
+			else
+			{
+				if (Boton == 2)
 				{
-					Casilla1 = false;
-				//	button9->Enabled = true;
-				//	button10->Enabled = true;
+					quitarPorBoton(2, button2);
 					nuevoMercenario(MerSelec->Nombre, MerSelec->ImagenURL);
-					button1->Text = "";
-					button1->BackgroundImage = Image::FromFile("OC.jpg");
-					button1->Enabled = false;
 				}
 				else
 				{
-					if (Boton == 2)
+					if (Boton == 3)
 					{
-						Casilla2 = false;
-					//	button9->Enabled = true;
-					//	button10->Enabled = true;
+						quitarPorBoton(3, button3);
 						nuevoMercenario(MerSelec->Nombre, MerSelec->ImagenURL);
-						button2->Text = "";
-						button2->BackgroundImage = Image::FromFile("OC.jpg");
-						button2->Enabled = false;
 					}
 					else
 					{
-						Casilla3 = false;
-					//	button9->Enabled = true;
-					//	button10->Enabled = true;
-						nuevoMercenario(MerSelec->Nombre, MerSelec->ImagenURL);
-						button3->Text = "";
-						button3->BackgroundImage = Image::FromFile("OC.jpg");
-						button3->Enabled = false;
+						if (Boton == 5)
+						{
+							quitarPorBoton(5, button5);
+							nuevoMercenario(MerSelec->Nombre, MerSelec->ImagenURL);
+						}
+						else
+						{
+							if (Boton == 6)
+							{
+								quitarPorBoton(6, button6);
+								nuevoMercenario(MerSelec->Nombre, MerSelec->ImagenURL);
+							}
+							else
+							{
+								if (Boton == 7)
+								{
+									quitarPorBoton(7, button7);
+									nuevoMercenario(MerSelec->Nombre, MerSelec->ImagenURL);
+								}
+							}
+						}
 					}
 				}
+			}
 			}
 			/////////////DE SELECCION MIRMIDON
-			void deSeleccion(int Boton, Mirmidon^Luch){
-				if (Boton == 1)
+		void deSeleccion(int Boton, Mirmidon^Luch){
+			if (Boton == 1)
+			{
+				quitarPorBoton(1, button1);
+				nuevoMirmidon(MirSelec->Nombre, MirSelec->ImagenURL);
+			}
+			else
+			{
+				if (Boton == 2)
 				{
-					Casilla1 = false;
-				//	button9->Enabled = true;
-					//button10->Enabled = true;
+					quitarPorBoton(2, button2);
 					nuevoMirmidon(MirSelec->Nombre, MirSelec->ImagenURL);
-					button1->Text = "";
-					button1->BackgroundImage = Image::FromFile("OC.jpg");
-					button1->Enabled = false;
 				}
 				else
 				{
-					if (Boton == 2)
+					if (Boton == 3)
 					{
-						Casilla2 = false;
-					//	button9->Enabled = true;
-					//	button10->Enabled = true;
+						quitarPorBoton(3, button3);
 						nuevoMirmidon(MirSelec->Nombre, MirSelec->ImagenURL);
-						button2->Text = "";
-						button2->BackgroundImage = Image::FromFile("OC.jpg");
-						button2->Enabled = false;
 					}
 					else
 					{
-						Casilla3 = false;
-					//	button9->Enabled = true;
-//						button10->Enabled = true;
-						nuevoMirmidon(MirSelec->Nombre, MirSelec->ImagenURL);
-						button3->Text = "";
-						button3->BackgroundImage = Image::FromFile("OC.jpg");
-						button3->Enabled = false;
+						if (Boton == 5)
+						{
+							quitarPorBoton(5, button5);
+							nuevoMirmidon(MirSelec->Nombre, MirSelec->ImagenURL);
+						}
+						else
+						{
+							if (Boton == 6)
+							{
+								quitarPorBoton(6, button6);
+								nuevoMirmidon(MirSelec->Nombre, MirSelec->ImagenURL);
+							}
+							else
+							{
+								if (Boton == 7)
+								{
+									quitarPorBoton(7, button7);
+									nuevoMirmidon(MirSelec->Nombre, MirSelec->ImagenURL);
+								}
+							}
+						}
 					}
 				}
 			}
-		
-		
+			}
 
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		///sadasdadasdasd//
+    	///sadasdadasdasd//
 		void mostrar1(){
 			Jinete^P = gcnew Jinete();
 			P = PTR1;
@@ -1575,12 +2199,6 @@ namespace SeleccionYJuego {
 
 
 #pragma endregion
-private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-			 button9->Enabled = true;
-			 button10->Enabled = true;
-			 moverseOPosicionarse();
-
-}
 private: System::Void Juego_Load(System::Object^  sender, System::EventArgs^  e) {
 			 button1->Enabled = false;
 			 button2->Enabled = false;
@@ -1598,7 +2216,7 @@ private: System::Void Juego_Load(System::Object^  sender, System::EventArgs^  e)
 			 button14->Enabled = false;
 			 button15->Enabled = false;
 			 button16->Enabled = false;
-			 nuevoJinete("Gildarts","Chucho.png");
+			 nuevoJinete("Gildarts", "Chucho.png");
 			 nuevoJinete("Agro", "Chucho.png");
 			 nuevoJinete("Wander", "Chucho.png");
 			 nuevoCaballero("Gan fall", "Chucho2.png");
@@ -1620,7 +2238,7 @@ private: System::Void Juego_Load(System::Object^  sender, System::EventArgs^  e)
 			 nuevoMirmidon("Lacayo10", "Chucho5.png");
 			 nuevoMirmidon("Lacayo11", "Chucho5.png");
 			 nuevoMirmidon("Lacayo12", "Chucho5.png");
-			 nuevoSkin("Luffy","Luffy.png");
+			 nuevoSkin("Luffy", "Luffy.png");
 			 nuevoSkin("Nami", "Nami.jpg");
 			 nuevoSkin("Zoro", "Zoro.png");
 			 nuevoSkin("Sanji", "Sanji.png");
@@ -1631,6 +2249,13 @@ private: System::Void Juego_Load(System::Object^  sender, System::EventArgs^  e)
 			 mostrar4();
 			 mostrar5();
 			 */
+}
+
+private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+			 button9->Enabled = true;
+			 button10->Enabled = true;
+			 moverseOPosicionarse();
+
 }
 private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
 			 moverseOPosicionarse();
@@ -1661,10 +2286,10 @@ private: System::Void button10_Click(System::Object^  sender, System::EventArgs^
 }
 private: System::Void button13_Click(System::Object^  sender, System::EventArgs^  e) {
 			 button14->Enabled = true;
-			 siguienteSkin();
+			 siguienteSkin(1);
 }
 private: System::Void button14_Click(System::Object^  sender, System::EventArgs^  e) {
-			 seleccionarSkin();
+			 seleccionarSkin(1);
 			 if (Casilla1 == Casilla2 == Casilla3 == Casilla4)
 			 {
 				 MessageBox::Show("JUGADOR 1 ESTA LISTO PARA EL COMBATE!");
@@ -1678,33 +2303,33 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			 comboBox1->Items->Add(ContenidoB1);
 			 if (ContenidoB1->Equals("Jinete"))
 			 {
-				 siguienteJinete();
+				 siguienteJinete(1);
 				 deSeleccion(1,JinSelec);
 			 }
 			 else
 			 {
 				 if (ContenidoB1->Equals("Caballero"))
 				 {
-					 siguienteCaballero();
+					 siguienteCaballero(1);
 					 deSeleccion(1,CabSelec);
 				 }
 				 else
 				 {
 					 if (ContenidoB1->Equals("Mercenario"))
 					 {
-						 siguienteMercenario();
+						 siguienteMercenario(1);
 						 deSeleccion(1,MerSelec);
 					 }
 					 else
 					 {
 						 if (ContenidoB1->Equals("Luchador"))
 						 {
-							 siguienteLuchador();
+							 siguienteLuchador(1);
 							deSeleccion(1,LuchSelec);
 						 }
 						 else if (ContenidoB1->Equals("Mirmidon"))
 						 {
-							 siguienteMirmidon();
+							 siguienteMirmidon(1);
 							 deSeleccion(1,MirSelec);
 						 }
 					 }
@@ -1712,8 +2337,8 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			 }
 }
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-			 siguienteSkin();
-			 deSeleccionarSkin();
+			 siguienteSkin(1);
+			 deSeleccionarSkin(1);
 			 Casilla4 = false;
 			 button4->Text = "";
 			 button4->BackgroundImage = Image::FromFile("OC.jpg");
@@ -1725,33 +2350,33 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			 comboBox1->Items->Add(ContenidoB2);
 			 if (ContenidoB2->Equals("Jinete"))
 			 {
-				 siguienteJinete();
+				 siguienteJinete(1);
 				 deSeleccion(2, JinSelec);
 			 }
 			 else
 			 {
 				 if (ContenidoB2->Equals("Caballero"))
 				 {
-					 siguienteCaballero();
+					 siguienteCaballero(1);
 					 deSeleccion(2, CabSelec);
 				 }
 				 else
 				 {
 					 if (ContenidoB2->Equals("Mercenario"))
 					 {
-						 siguienteMercenario();
+						 siguienteMercenario(1);
 						 deSeleccion(2, MerSelec);
 					 }
 					 else
 					 {
 						 if (ContenidoB2->Equals("Luchador"))
 						 {
-							 siguienteLuchador();
+							 siguienteLuchador(1);
 							 deSeleccion(2, LuchSelec);
 						 }
 						 else if (ContenidoB2->Equals("Mirmidon"))
 						 {
-							 siguienteMirmidon();
+							 siguienteMirmidon(1);
 							 deSeleccion(2, MirSelec);
 						 }
 					 }
@@ -1764,38 +2389,209 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 			 comboBox1->Items->Add(ContenidoB3);
 			 if (ContenidoB3->Equals("Jinete"))
 			 {
-				 siguienteJinete();
+				 siguienteJinete(1);
 				 deSeleccion(3, JinSelec);
 			 }
 			 else
 			 {
 				 if (ContenidoB3->Equals("Caballero"))
 				 {
-					 siguienteCaballero();
+					 siguienteCaballero(1);
 					 deSeleccion(3, CabSelec);
 				 }
 				 else
 				 {
 					 if (ContenidoB3->Equals("Mercenario"))
 					 {
-						 siguienteMercenario();
+						 siguienteMercenario(1);
 						 deSeleccion(3, MerSelec);
 					 }
 					 else
 					 {
 						 if (ContenidoB3->Equals("Luchador"))
 						 {
-							 siguienteLuchador();
+							 siguienteLuchador(1);
 							 deSeleccion(3, LuchSelec);
 						 }
 						 else if (ContenidoB3->Equals("Mirmidon"))
 						 {
-							 siguienteMirmidon();
+							 siguienteMirmidon(1);
 							 deSeleccion(3, MirSelec);
 						 }
 					 }
 				 }
 			 }
+}
+//PARA JUGADOR 2
+private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+			 button11->Enabled = true;
+			 button12->Enabled = true;
+			 moverseOPosicionarse2();
+}
+private: System::Void button11_Click(System::Object^  sender, System::EventArgs^  e) {
+			 moverseOPosicionarse2();
+}
+private: System::Void button12_Click(System::Object^  sender, System::EventArgs^  e) {
+			 if (Casilla5 == false)
+			 {
+				 PersonajeSeleccionado(5);
+			 }
+			 else
+			 {
+				 if (Casilla6 == false)
+				 {
+					 PersonajeSeleccionado(6);
+				 }
+				 else
+				 {
+					 if (Casilla7 == false)
+					 {
+						 PersonajeSeleccionado(7);
+					 }
+					 else
+					 {
+						 MessageBox::Show("Ya has seleccionado 3 personajes!");
+					 }
+				 }
+			 }
+}
+private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
+			 comboBox2->Enabled = true;
+			 comboBox2->Items->Add(ContenidoB5);
+			 if (ContenidoB5->Equals("Jinete"))
+			 {
+				 siguienteJinete(2);
+				 deSeleccion(5, JinSelec);
+			 }
+			 else
+			 {
+				 if (ContenidoB5->Equals("Caballero"))
+				 {
+					 siguienteCaballero(2);
+					 deSeleccion(5, CabSelec);
+				 }
+				 else
+				 {
+					 if (ContenidoB5->Equals("Mercenario"))
+					 {
+						 siguienteMercenario(2);
+						 deSeleccion(5, MerSelec);
+					 }
+					 else
+					 {
+						 if (ContenidoB5->Equals("Luchador"))
+						 {
+							 siguienteLuchador(2);
+							 deSeleccion(5, LuchSelec);
+						 }
+						 else if (ContenidoB5->Equals("Mirmidon"))
+						 {
+							 siguienteMirmidon(2);
+							 deSeleccion(5, MirSelec);
+						 }
+					 }
+				 }
+			 }
+}
+private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
+			 comboBox2->Enabled = true;
+			 comboBox2->Items->Add(ContenidoB6);
+			 if (ContenidoB6->Equals("Jinete"))
+			 {
+				 siguienteJinete(2);
+				 deSeleccion(6, JinSelec);
+			 }
+			 else
+			 {
+				 if (ContenidoB6->Equals("Caballero"))
+				 {
+					 siguienteCaballero(2);
+					 deSeleccion(6, CabSelec);
+				 }
+				 else
+				 {
+					 if (ContenidoB6->Equals("Mercenario"))
+					 {
+						 siguienteMercenario(2);
+						 deSeleccion(6, MerSelec);
+					 }
+					 else
+					 {
+						 if (ContenidoB6->Equals("Luchador"))
+						 {
+							 siguienteLuchador(2);
+							 deSeleccion(6, LuchSelec);
+						 }
+						 else if (ContenidoB6->Equals("Mirmidon"))
+						 {
+							 siguienteMirmidon(2);
+							 deSeleccion(6, MirSelec);
+						 }
+					 }
+				 }
+			 }
+}
+private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
+			 comboBox2->Enabled = true;
+			 comboBox2->Items->Add(ContenidoB7);
+			 if (ContenidoB7->Equals("Jinete"))
+			 {
+				 siguienteJinete(2);
+				 deSeleccion(7, JinSelec);
+			 }
+			 else
+			 {
+				 if (ContenidoB7->Equals("Caballero"))
+				 {
+					 siguienteCaballero(2);
+					 deSeleccion(7, CabSelec);
+				 }
+				 else
+				 {
+					 if (ContenidoB7->Equals("Mercenario"))
+					 {
+						 siguienteMercenario(2);
+						 deSeleccion(7, MerSelec);
+					 }
+					 else
+					 {
+						 if (ContenidoB7->Equals("Luchador"))
+						 {
+							 siguienteLuchador(2);
+							 deSeleccion(7, LuchSelec);
+						 }
+						 else if (ContenidoB7->Equals("Mirmidon"))
+						 {
+							 siguienteMirmidon(2);
+							 deSeleccion(7, MirSelec);
+						 }
+					 }
+				 }
+			 }
+}
+private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
+			 siguienteSkin(2);
+			 deSeleccionarSkin(2);
+			 Casilla8 = false;
+			 button8->Text = "";
+			 button8->BackgroundImage = Image::FromFile("OC.jpg");
+			 button8->Enabled = false;
+
+}
+private: System::Void button15_Click(System::Object^  sender, System::EventArgs^  e) {
+			 button16->Enabled = true;
+			 siguienteSkin(2);
+}
+private: System::Void button16_Click(System::Object^  sender, System::EventArgs^  e) {
+			 seleccionarSkin(2);
+			 if (Casilla5 == Casilla5 == Casilla7 == Casilla8)
+			 {
+				 MessageBox::Show("JUGADOR 2 ESTA LISTO PARA EL COMBATE!");
+				 button15->Enabled = false;
+				 button16->Enabled = false;
+			 }
+}
+private: System::Void pictureBox2_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
