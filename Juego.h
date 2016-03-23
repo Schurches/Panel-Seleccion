@@ -427,6 +427,7 @@ namespace SeleccionYJuego {
 			this->button1->TabIndex = 13;
 			this->button1->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Juego::button1_Click);
 			// 
 			// button2
 			// 
@@ -457,6 +458,7 @@ namespace SeleccionYJuego {
 			this->button4->TabIndex = 16;
 			this->button4->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &Juego::button4_Click);
 			// 
 			// button5
 			// 
@@ -547,6 +549,7 @@ namespace SeleccionYJuego {
 		};
 		static Skin^PTR6 = nullptr;
 		static Skin^SkinPlayer = nullptr;
+		static Skin^SkinSelecionado = nullptr;
 
 		//////////////////////////////////////////////DECLARANDO LAS CARACTERISTICAS DE LOS PERSONAJES
 		//Jinete
@@ -954,13 +957,24 @@ namespace SeleccionYJuego {
 				siguienteMirmidor();
 			}
 		}
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////SELECCION DE SKINS
 		void seleccionarSkin(){
+			SkinSelecionado = SkinPlayer;
 			Skin^P = gcnew Skin();
 			P = PTR6;
 			while (P->Link != SkinPlayer)
 			{
 				P = P->Link;
+			}
+			if (SkinPlayer == PTR6)
+			{
+				PTR6 = PTR6->Link;
 			}
 			P->Link = SkinPlayer->Link;
 			///Poniendo el arma en el nodo
@@ -987,6 +1001,10 @@ namespace SeleccionYJuego {
 			P = nullptr;
 			SkinPlayer = nullptr;
 		}
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////SUBRUTINA PARA SELECCIONAR ALGUN PERSONAJE 
 		void PersonajeSeleccionado(int Casilla){
 			if (comboBox1->SelectedItem->Equals("Jinete"))
@@ -1236,7 +1254,16 @@ namespace SeleccionYJuego {
 					}
 				}
 			}
-			
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			//////DESELECCIONAR SKIN
+			void deSeleccionarSkin(){
+				nuevoSkin(SkinSelecionado->Nombre,SkinSelecionado->URL);
+				button13->Enabled = true;
+				button14->Enabled = true;
+			}
 		
 		
 
@@ -1410,7 +1437,23 @@ private: System::Void button14_Click(System::Object^  sender, System::EventArgs^
 			 if (Casilla1 == Casilla2 == Casilla3 == Casilla4)
 			 {
 				 MessageBox::Show("JUGADOR 1 ESTA LISTO PARA EL COMBATE!");
+				 button13->Enabled = false;
+				 button14->Enabled = false;
+
 			 }
+}
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+
+
+}
+private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+			 siguienteSkin();
+			 deSeleccionarSkin();
+			 Casilla4 = false;
+			 button4->Text = "";
+			 button4->BackgroundImage = Image::FromFile("OC.jpg");
+			 button4->Enabled = false;
+
 }
 };
 }
