@@ -74,9 +74,14 @@ namespace SeleccionYJuego {
 	private: System::Windows::Forms::Button^  button6;
 	private: System::Windows::Forms::Button^  button7;
 	private: System::Windows::Forms::Button^  button8;
-	private: System::Windows::Forms::Label^  label2;
+
 	private: System::Windows::Forms::Button^  button16;
 	private: System::Windows::Forms::Button^  button15;
+	private: System::Windows::Forms::Button^  button18;
+	private: System::Windows::Forms::Button^  button17;
+	private: System::Windows::Forms::PictureBox^  pictureBox3;
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  label2;
 
 
 	private:
@@ -95,6 +100,7 @@ namespace SeleccionYJuego {
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Juego::typeid));
 			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->button17 = (gcnew System::Windows::Forms::Button());
 			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
 			this->button14 = (gcnew System::Windows::Forms::Button());
 			this->button13 = (gcnew System::Windows::Forms::Button());
@@ -107,6 +113,7 @@ namespace SeleccionYJuego {
 			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->button18 = (gcnew System::Windows::Forms::Button());
 			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
 			this->button16 = (gcnew System::Windows::Forms::Button());
 			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
@@ -127,6 +134,8 @@ namespace SeleccionYJuego {
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->button8 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1->SuspendLayout();
 			this->groupBox5->SuspendLayout();
@@ -136,18 +145,24 @@ namespace SeleccionYJuego {
 			this->groupBox6->SuspendLayout();
 			this->groupBox3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// listBox1
 			// 
+			this->listBox1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->listBox1->FormattingEnabled = true;
+			this->listBox1->ItemHeight = 17;
 			this->listBox1->Location = System::Drawing::Point(6, 230);
 			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(219, 147);
+			this->listBox1->Size = System::Drawing::Size(219, 140);
 			this->listBox1->TabIndex = 0;
+			this->listBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &Juego::listBox1_SelectedIndexChanged);
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->button17);
 			this->groupBox1->Controls->Add(this->groupBox5);
 			this->groupBox1->Controls->Add(this->groupBox4);
 			this->groupBox1->Controls->Add(this->pictureBox1);
@@ -158,6 +173,18 @@ namespace SeleccionYJuego {
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Jugador 1";
+			// 
+			// button17
+			// 
+			this->button17->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button17->Location = System::Drawing::Point(31, 383);
+			this->button17->Name = L"button17";
+			this->button17->Size = System::Drawing::Size(142, 37);
+			this->button17->TabIndex = 22;
+			this->button17->Text = L"button17";
+			this->button17->UseVisualStyleBackColor = true;
+			this->button17->Click += gcnew System::EventHandler(this, &Juego::button17_Click);
 			// 
 			// groupBox5
 			// 
@@ -175,6 +202,8 @@ namespace SeleccionYJuego {
 			// 
 			// button14
 			// 
+			this->button14->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button14->Location = System::Drawing::Point(6, 144);
 			this->button14->Name = L"button14";
 			this->button14->Size = System::Drawing::Size(105, 23);
@@ -185,6 +214,8 @@ namespace SeleccionYJuego {
 			// 
 			// button13
 			// 
+			this->button13->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button13->Location = System::Drawing::Point(6, 89);
 			this->button13->Name = L"button13";
 			this->button13->Size = System::Drawing::Size(75, 23);
@@ -196,35 +227,44 @@ namespace SeleccionYJuego {
 			// radioButton3
 			// 
 			this->radioButton3->AutoSize = true;
+			this->radioButton3->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->radioButton3->Location = System::Drawing::Point(6, 66);
 			this->radioButton3->Name = L"radioButton3";
-			this->radioButton3->Size = System::Drawing::Size(61, 17);
+			this->radioButton3->Size = System::Drawing::Size(67, 21);
 			this->radioButton3->TabIndex = 2;
 			this->radioButton3->TabStop = true;
 			this->radioButton3->Text = L"Espada";
 			this->radioButton3->UseVisualStyleBackColor = true;
+			this->radioButton3->CheckedChanged += gcnew System::EventHandler(this, &Juego::radioButton3_CheckedChanged);
 			// 
 			// radioButton2
 			// 
 			this->radioButton2->AutoSize = true;
+			this->radioButton2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->radioButton2->Location = System::Drawing::Point(6, 43);
 			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(54, 17);
+			this->radioButton2->Size = System::Drawing::Size(60, 21);
 			this->radioButton2->TabIndex = 1;
 			this->radioButton2->TabStop = true;
 			this->radioButton2->Text = L"Lanza";
 			this->radioButton2->UseVisualStyleBackColor = true;
+			this->radioButton2->CheckedChanged += gcnew System::EventHandler(this, &Juego::radioButton2_CheckedChanged);
 			// 
 			// radioButton1
 			// 
 			this->radioButton1->AutoSize = true;
+			this->radioButton1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->radioButton1->Location = System::Drawing::Point(6, 21);
 			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(57, 17);
+			this->radioButton1->Size = System::Drawing::Size(62, 21);
 			this->radioButton1->TabIndex = 0;
 			this->radioButton1->TabStop = true;
 			this->radioButton1->Text = L"Hacha";
 			this->radioButton1->UseVisualStyleBackColor = true;
+			this->radioButton1->CheckedChanged += gcnew System::EventHandler(this, &Juego::radioButton1_CheckedChanged);
 			// 
 			// groupBox4
 			// 
@@ -240,6 +280,8 @@ namespace SeleccionYJuego {
 			// 
 			// button10
 			// 
+			this->button10->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button10->Location = System::Drawing::Point(7, 76);
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(112, 23);
@@ -250,6 +292,8 @@ namespace SeleccionYJuego {
 			// 
 			// comboBox1
 			// 
+			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
 				L"Jinete", L"Caballero", L"Luchador", L"Mercenario",
@@ -257,12 +301,14 @@ namespace SeleccionYJuego {
 			});
 			this->comboBox1->Location = System::Drawing::Point(7, 20);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(112, 21);
+			this->comboBox1->Size = System::Drawing::Size(112, 25);
 			this->comboBox1->TabIndex = 0;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &Juego::comboBox1_SelectedIndexChanged);
 			// 
 			// button9
 			// 
+			this->button9->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button9->Location = System::Drawing::Point(6, 47);
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(113, 23);
@@ -284,6 +330,7 @@ namespace SeleccionYJuego {
 			// 
 			// groupBox2
 			// 
+			this->groupBox2->Controls->Add(this->button18);
 			this->groupBox2->Controls->Add(this->groupBox6);
 			this->groupBox2->Controls->Add(this->groupBox3);
 			this->groupBox2->Controls->Add(this->listBox2);
@@ -294,6 +341,18 @@ namespace SeleccionYJuego {
 			this->groupBox2->TabIndex = 12;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Jugador 2";
+			// 
+			// button18
+			// 
+			this->button18->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button18->Location = System::Drawing::Point(208, 380);
+			this->button18->Name = L"button18";
+			this->button18->Size = System::Drawing::Size(132, 40);
+			this->button18->TabIndex = 23;
+			this->button18->Text = L"button18";
+			this->button18->UseVisualStyleBackColor = true;
+			this->button18->Click += gcnew System::EventHandler(this, &Juego::button18_Click);
 			// 
 			// groupBox6
 			// 
@@ -311,6 +370,8 @@ namespace SeleccionYJuego {
 			// 
 			// button16
 			// 
+			this->button16->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button16->Location = System::Drawing::Point(7, 137);
 			this->button16->Name = L"button16";
 			this->button16->Size = System::Drawing::Size(104, 23);
@@ -322,16 +383,21 @@ namespace SeleccionYJuego {
 			// radioButton4
 			// 
 			this->radioButton4->AutoSize = true;
+			this->radioButton4->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->radioButton4->Location = System::Drawing::Point(7, 19);
 			this->radioButton4->Name = L"radioButton4";
-			this->radioButton4->Size = System::Drawing::Size(57, 17);
+			this->radioButton4->Size = System::Drawing::Size(62, 21);
 			this->radioButton4->TabIndex = 3;
 			this->radioButton4->TabStop = true;
 			this->radioButton4->Text = L"Hacha";
 			this->radioButton4->UseVisualStyleBackColor = true;
+			this->radioButton4->CheckedChanged += gcnew System::EventHandler(this, &Juego::radioButton4_CheckedChanged);
 			// 
 			// button15
 			// 
+			this->button15->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button15->Location = System::Drawing::Point(6, 88);
 			this->button15->Name = L"button15";
 			this->button15->Size = System::Drawing::Size(75, 23);
@@ -343,24 +409,30 @@ namespace SeleccionYJuego {
 			// radioButton6
 			// 
 			this->radioButton6->AutoSize = true;
+			this->radioButton6->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->radioButton6->Location = System::Drawing::Point(7, 65);
 			this->radioButton6->Name = L"radioButton6";
-			this->radioButton6->Size = System::Drawing::Size(61, 17);
+			this->radioButton6->Size = System::Drawing::Size(67, 21);
 			this->radioButton6->TabIndex = 5;
 			this->radioButton6->TabStop = true;
 			this->radioButton6->Text = L"Espada";
 			this->radioButton6->UseVisualStyleBackColor = true;
+			this->radioButton6->CheckedChanged += gcnew System::EventHandler(this, &Juego::radioButton6_CheckedChanged);
 			// 
 			// radioButton5
 			// 
 			this->radioButton5->AutoSize = true;
+			this->radioButton5->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->radioButton5->Location = System::Drawing::Point(7, 42);
 			this->radioButton5->Name = L"radioButton5";
-			this->radioButton5->Size = System::Drawing::Size(54, 17);
+			this->radioButton5->Size = System::Drawing::Size(60, 21);
 			this->radioButton5->TabIndex = 4;
 			this->radioButton5->TabStop = true;
 			this->radioButton5->Text = L"Lanza";
 			this->radioButton5->UseVisualStyleBackColor = true;
+			this->radioButton5->CheckedChanged += gcnew System::EventHandler(this, &Juego::radioButton5_CheckedChanged);
 			// 
 			// groupBox3
 			// 
@@ -376,6 +448,8 @@ namespace SeleccionYJuego {
 			// 
 			// button12
 			// 
+			this->button12->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button12->Location = System::Drawing::Point(6, 76);
 			this->button12->Name = L"button12";
 			this->button12->Size = System::Drawing::Size(119, 23);
@@ -386,6 +460,8 @@ namespace SeleccionYJuego {
 			// 
 			// button11
 			// 
+			this->button11->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button11->Location = System::Drawing::Point(6, 47);
 			this->button11->Name = L"button11";
 			this->button11->Size = System::Drawing::Size(119, 23);
@@ -396,6 +472,8 @@ namespace SeleccionYJuego {
 			// 
 			// comboBox2
 			// 
+			this->comboBox2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->comboBox2->FormattingEnabled = true;
 			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
 				L"Jinete", L"Caballero", L"Luchador", L"Mercenario",
@@ -403,17 +481,21 @@ namespace SeleccionYJuego {
 			});
 			this->comboBox2->Location = System::Drawing::Point(7, 20);
 			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(118, 21);
+			this->comboBox2->Size = System::Drawing::Size(118, 25);
 			this->comboBox2->TabIndex = 0;
 			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &Juego::comboBox2_SelectedIndexChanged);
 			// 
 			// listBox2
 			// 
+			this->listBox2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->listBox2->FormattingEnabled = true;
+			this->listBox2->ItemHeight = 17;
 			this->listBox2->Location = System::Drawing::Point(157, 230);
 			this->listBox2->Name = L"listBox2";
-			this->listBox2->Size = System::Drawing::Size(219, 147);
+			this->listBox2->Size = System::Drawing::Size(219, 140);
 			this->listBox2->TabIndex = 1;
+			this->listBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &Juego::listBox2_SelectedIndexChanged);
 			// 
 			// pictureBox2
 			// 
@@ -430,6 +512,9 @@ namespace SeleccionYJuego {
 			// button1
 			// 
 			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button1->Location = System::Drawing::Point(392, 33);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(79, 64);
@@ -441,6 +526,9 @@ namespace SeleccionYJuego {
 			// button2
 			// 
 			this->button2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button2->Location = System::Drawing::Point(392, 132);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(79, 64);
@@ -452,6 +540,9 @@ namespace SeleccionYJuego {
 			// button3
 			// 
 			this->button3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button3->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button3->Location = System::Drawing::Point(392, 274);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(79, 64);
@@ -463,6 +554,9 @@ namespace SeleccionYJuego {
 			// button4
 			// 
 			this->button4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button4->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button4->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button4->Location = System::Drawing::Point(392, 385);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(79, 64);
@@ -474,6 +568,9 @@ namespace SeleccionYJuego {
 			// button5
 			// 
 			this->button5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button5->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button5->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button5->Location = System::Drawing::Point(604, 33);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(79, 64);
@@ -485,6 +582,9 @@ namespace SeleccionYJuego {
 			// button6
 			// 
 			this->button6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button6->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button6->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button6->Location = System::Drawing::Point(604, 132);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(79, 64);
@@ -496,6 +596,9 @@ namespace SeleccionYJuego {
 			// button7
 			// 
 			this->button7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button7->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button7->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button7->Location = System::Drawing::Point(604, 274);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(79, 64);
@@ -507,6 +610,9 @@ namespace SeleccionYJuego {
 			// button8
 			// 
 			this->button8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button8->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button8->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button8->Location = System::Drawing::Point(604, 385);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(79, 64);
@@ -515,14 +621,38 @@ namespace SeleccionYJuego {
 			this->button8->UseVisualStyleBackColor = true;
 			this->button8->Click += gcnew System::EventHandler(this, &Juego::button8_Click);
 			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->Location = System::Drawing::Point(487, 211);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(100, 50);
+			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox3->TabIndex = 21;
+			this->pictureBox3->TabStop = false;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(12, 7);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(52, 17);
+			this->label1->TabIndex = 22;
+			this->label1->Text = L"Estatus:";
+			this->label1->Click += gcnew System::EventHandler(this, &Juego::label1_Click);
+			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(525, 232);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(709, 4);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(21, 13);
-			this->label2->TabIndex = 21;
-			this->label2->Text = L"VS";
+			this->label2->Size = System::Drawing::Size(55, 17);
+			this->label2->TabIndex = 23;
+			this->label2->Text = L"Estatus: ";
+			this->label2->Click += gcnew System::EventHandler(this, &Juego::label2_Click);
 			// 
 			// Juego
 			// 
@@ -530,6 +660,8 @@ namespace SeleccionYJuego {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1084, 461);
 			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->button8);
 			this->Controls->Add(this->button7);
 			this->Controls->Add(this->groupBox2);
@@ -553,6 +685,7 @@ namespace SeleccionYJuego {
 			this->groupBox6->PerformLayout();
 			this->groupBox3->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -663,7 +796,7 @@ namespace SeleccionYJuego {
 		int ContJin = 0, ContCab = 0, ContLuch = 0, ContMer = 0, ContMir = 0, ContSkin=0;
 		//Booleanos de casillas ocupadas
 		bool Casilla1 = false, Casilla2 = false, Casilla3 = false, Casilla4 = false, Casilla5 = false, Casilla6 = false, Casilla7 = false, Casilla8 = false;
-
+		bool J1Ready=false, J2Ready = false;
 		////////////////MOSTRAR INFORMACION DEL PRIMER PERSONAJE DE LA LISTA (ESTO SUCEDE CUANDO SE DA CLICK A ALGUN ITEM DEL COMBOBOX)
 		////////////////SIGUIENTE SKIN
 		void siguienteSkin(int Jugador){
@@ -1177,6 +1310,7 @@ namespace SeleccionYJuego {
 				Casilla4 = true;
 				P = nullptr;
 				SkinPlayer = nullptr;
+				Listo(1);
 			}
 			else
 			{
@@ -1215,6 +1349,7 @@ namespace SeleccionYJuego {
 				Casilla8 = true;
 				P = nullptr;
 				SkinPlayer2 = nullptr;
+				Listo(2);
 			}
 			
 		}
@@ -1492,6 +1627,7 @@ namespace SeleccionYJuego {
 				button1->BackgroundImage = Image::FromFile(JinAux->ImagenURL);
 				Casilla1 = true;
 				ContenidoB1 = "Jinete";
+				Listo(1);
 			}
 			else
 			{
@@ -1502,6 +1638,7 @@ namespace SeleccionYJuego {
 					button2->BackgroundImage = Image::FromFile(JinAux->ImagenURL);
 					Casilla2 = true;
 					ContenidoB2 = "Jinete";
+					Listo(1);
 				}
 				else
 				{
@@ -1512,6 +1649,7 @@ namespace SeleccionYJuego {
 						button3->BackgroundImage = Image::FromFile(JinAux->ImagenURL);
 						Casilla3 = true;
 						ContenidoB3 = "Jinete";
+						Listo(1);
 					}
 					else
 					{
@@ -1522,6 +1660,7 @@ namespace SeleccionYJuego {
 							button5->BackgroundImage = Image::FromFile(JinAux->ImagenURL);
 							Casilla5 = true;
 							ContenidoB5 = "Jinete";
+							Listo(2);
 						}
 						else
 						{
@@ -1532,6 +1671,7 @@ namespace SeleccionYJuego {
 								button6->BackgroundImage = Image::FromFile(JinAux->ImagenURL);
 								Casilla6 = true;
 								ContenidoB6 = "Jinete";
+								Listo(2);
 							}
 							else
 							{
@@ -1542,6 +1682,7 @@ namespace SeleccionYJuego {
 									button7->BackgroundImage = Image::FromFile(JinAux->ImagenURL);
 									Casilla7 = true;
 									ContenidoB7 = "Jinete";
+									Listo(2);
 								}
 							}
 						}
@@ -1559,6 +1700,7 @@ namespace SeleccionYJuego {
 				button1->BackgroundImage = Image::FromFile(CabAux->ImagenURL);
 				Casilla1 = true;
 				ContenidoB1 = "Caballero";
+				Listo(1);
 			}
 			else
 			{
@@ -1569,6 +1711,7 @@ namespace SeleccionYJuego {
 					button2->BackgroundImage = Image::FromFile(CabAux->ImagenURL);
 					Casilla2 = true;
 					ContenidoB2 = "Caballero";
+					Listo(1);
 				}
 				else
 				{
@@ -1579,6 +1722,7 @@ namespace SeleccionYJuego {
 						button3->BackgroundImage = Image::FromFile(CabAux->ImagenURL);
 						Casilla3 = true;
 						ContenidoB3 = "Caballero";
+						Listo(1);
 					}
 					else
 					{
@@ -1589,6 +1733,7 @@ namespace SeleccionYJuego {
 							button5->BackgroundImage = Image::FromFile(CabAux->ImagenURL);
 							Casilla5 = true;
 							ContenidoB5 = "Caballero";
+							Listo(2);
 						}
 						else
 						{
@@ -1599,6 +1744,7 @@ namespace SeleccionYJuego {
 								button6->BackgroundImage = Image::FromFile(CabAux->ImagenURL);
 								Casilla6 = true;
 								ContenidoB6 = "Caballero";
+								Listo(2);
 							}
 							else
 							{
@@ -1609,6 +1755,7 @@ namespace SeleccionYJuego {
 									button7->BackgroundImage = Image::FromFile(CabAux->ImagenURL);
 									Casilla7 = true;
 									ContenidoB7 = "Caballero";
+									Listo(2);
 								}
 							}
 						}
@@ -1625,6 +1772,7 @@ namespace SeleccionYJuego {
 				button1->BackgroundImage = Image::FromFile(LuchAux->ImagenURL);
 				Casilla1 = true;
 				ContenidoB1 = "Luchador";
+				Listo(1);
 			}
 			else
 			{
@@ -1635,6 +1783,7 @@ namespace SeleccionYJuego {
 					button2->BackgroundImage = Image::FromFile(LuchAux->ImagenURL);
 					Casilla2 = true;
 					ContenidoB2 = "Luchador";
+					Listo(1);
 				}
 				else
 				{
@@ -1645,6 +1794,7 @@ namespace SeleccionYJuego {
 						button3->BackgroundImage = Image::FromFile(LuchAux->ImagenURL);
 						Casilla3 = true;
 						ContenidoB3 = "Luchador";
+						Listo(1);
 					}
 					else
 					{
@@ -1655,6 +1805,7 @@ namespace SeleccionYJuego {
 							button5->BackgroundImage = Image::FromFile(LuchAux->ImagenURL);
 							Casilla5 = true;
 							ContenidoB5 = "Luchador";
+							Listo(2);
 						}
 						else
 						{
@@ -1665,6 +1816,7 @@ namespace SeleccionYJuego {
 								button6->BackgroundImage = Image::FromFile(LuchAux->ImagenURL);
 								Casilla6 = true;
 								ContenidoB6 = "Luchador";
+								Listo(2);
 							}
 							else
 							{
@@ -1675,6 +1827,7 @@ namespace SeleccionYJuego {
 									button7->BackgroundImage = Image::FromFile(LuchAux->ImagenURL);
 									Casilla7 = true;
 									ContenidoB7 = "Luchador";
+									Listo(2);
 								}
 							}
 						}
@@ -1691,6 +1844,7 @@ namespace SeleccionYJuego {
 					button1->BackgroundImage = Image::FromFile(MerAux->ImagenURL);
 					Casilla1 = true;
 					ContenidoB1 = "Mercenario";
+					Listo(1);
 				}
 				else
 				{
@@ -1701,6 +1855,7 @@ namespace SeleccionYJuego {
 						button2->BackgroundImage = Image::FromFile(MerAux->ImagenURL);
 						Casilla2 = true;
 						ContenidoB2 = "Mercenario";
+						Listo(1);
 					}
 					else
 					{
@@ -1711,6 +1866,7 @@ namespace SeleccionYJuego {
 							button3->BackgroundImage = Image::FromFile(MerAux->ImagenURL);
 							Casilla3 = true;
 							ContenidoB3 = "Mercenario";
+							Listo(1);
 						}
 						else
 						{
@@ -1721,6 +1877,7 @@ namespace SeleccionYJuego {
 								button5->BackgroundImage = Image::FromFile(MerAux->ImagenURL);
 								Casilla5 = true;
 								ContenidoB5 = "Mercenario";
+								Listo(2);
 							}
 							else
 							{
@@ -1731,6 +1888,7 @@ namespace SeleccionYJuego {
 									button6->BackgroundImage = Image::FromFile(MerAux->ImagenURL);
 									Casilla6 = true;
 									ContenidoB6 = "Mercenario";
+									Listo(2);
 								}
 								else
 								{
@@ -1741,6 +1899,7 @@ namespace SeleccionYJuego {
 										button7->BackgroundImage = Image::FromFile(MerAux->ImagenURL);
 										Casilla7 = true;
 										ContenidoB7 = "Mercenario";
+										Listo(2);
 									}
 								}
 							}
@@ -1757,6 +1916,7 @@ namespace SeleccionYJuego {
 					button1->BackgroundImage = Image::FromFile(MirAux->ImagenURL);
 					Casilla1 = true;
 					ContenidoB1 = "Mirmidon";
+					Listo(1);
 				}
 				else
 				{
@@ -1767,6 +1927,7 @@ namespace SeleccionYJuego {
 						button2->BackgroundImage = Image::FromFile(MirAux->ImagenURL);
 						Casilla2 = true;
 						ContenidoB2 = "Mirmidon";
+						Listo(1);
 					}
 					else
 					{
@@ -1777,6 +1938,7 @@ namespace SeleccionYJuego {
 							button3->BackgroundImage = Image::FromFile(MirAux->ImagenURL);
 							Casilla3 = true;
 							ContenidoB3 = "Mirmidon";
+							Listo(1);
 						}
 						else
 						{
@@ -1787,6 +1949,7 @@ namespace SeleccionYJuego {
 								button5->BackgroundImage = Image::FromFile(MirAux->ImagenURL);
 								Casilla5 = true;
 								ContenidoB5 = "Mirmidon";
+								Listo(2);
 							}
 							else
 							{
@@ -1797,6 +1960,7 @@ namespace SeleccionYJuego {
 									button6->BackgroundImage = Image::FromFile(MirAux->ImagenURL);
 									Casilla6 = true;
 									ContenidoB6 = "Mirmidon";
+									Listo(2);
 								}
 								else
 								{
@@ -1807,6 +1971,7 @@ namespace SeleccionYJuego {
 										button7->BackgroundImage = Image::FromFile(MirAux->ImagenURL);
 										Casilla7 = true;
 										ContenidoB7 = "Mirmidon";
+										Listo(2);
 									}
 								}
 							}
@@ -1823,12 +1988,14 @@ namespace SeleccionYJuego {
 				nuevoSkin(SkinSelecionado->Nombre, SkinSelecionado->URL);
 				button13->Enabled = true;
 				button14->Enabled = true;
+				Listo(1);
 			}
 			else
 			{
 				nuevoSkin(SkinSelecionado2->Nombre, SkinSelecionado2->URL);
 				button15->Enabled = true;
 				button16->Enabled = true;
+				Listo(2);
 			}
 		}
 			/////DESELECCIONAR JINETE
@@ -1840,6 +2007,7 @@ namespace SeleccionYJuego {
 					button1->Text = "";
 					button1->BackgroundImage = Image::FromFile("OC.jpg");
 					button1->Enabled = false;
+					Listo(1);
 				}
 				else
 				{
@@ -1850,6 +2018,7 @@ namespace SeleccionYJuego {
 						button2->Text = "";
 						button2->BackgroundImage = Image::FromFile("OC.jpg");
 						button2->Enabled = false;
+						Listo(1);
 					}
 					else
 					{
@@ -1860,6 +2029,7 @@ namespace SeleccionYJuego {
 							button3->Text = "";
 							button3->BackgroundImage = Image::FromFile("OC.jpg");
 							button3->Enabled = false;
+							Listo(1);
 						}
 						else
 						{
@@ -1870,6 +2040,7 @@ namespace SeleccionYJuego {
 								button5->Text = "";
 								button5->BackgroundImage = Image::FromFile("OC.jpg");
 								button5->Enabled = false;
+								Listo(2);
 							}
 							else
 							{
@@ -1880,6 +2051,7 @@ namespace SeleccionYJuego {
 									button6->Text = "";
 									button6->BackgroundImage = Image::FromFile("OC.jpg");
 									button6->Enabled = false;
+									Listo(2);
 								}
 								else
 								{
@@ -1890,6 +2062,7 @@ namespace SeleccionYJuego {
 										button7->Text = "";
 										button7->BackgroundImage = Image::FromFile("OC.jpg");
 										button7->Enabled = false;
+										Listo(2);
 									}
 								}
 							}
@@ -1940,6 +2113,7 @@ namespace SeleccionYJuego {
 					button1->Text = "";
 					button1->BackgroundImage = Image::FromFile("OC.jpg");
 					button1->Enabled = false;
+					Listo(1);
 				}
 				else
 				{
@@ -1950,6 +2124,7 @@ namespace SeleccionYJuego {
 						button2->Text = "";
 						button2->BackgroundImage = Image::FromFile("OC.jpg");
 						button2->Enabled = false;
+						Listo(1);
 					}
 					else
 					{
@@ -1960,6 +2135,7 @@ namespace SeleccionYJuego {
 							button3->Text = "";
 							button3->BackgroundImage = Image::FromFile("OC.jpg");
 							button3->Enabled = false;
+							Listo(1);
 						}
 						else
 						{
@@ -1970,6 +2146,7 @@ namespace SeleccionYJuego {
 								button5->Text = "";
 								button5->BackgroundImage = Image::FromFile("OC.jpg");
 								button5->Enabled = false;
+								Listo(2);
 							}
 							else
 							{
@@ -1980,6 +2157,7 @@ namespace SeleccionYJuego {
 									button6->Text = "";
 									button6->BackgroundImage = Image::FromFile("OC.jpg");
 									button6->Enabled = false;
+									Listo(2);
 								}
 								else
 								{
@@ -1990,6 +2168,7 @@ namespace SeleccionYJuego {
 										button7->Text = "";
 										button7->BackgroundImage = Image::FromFile("OC.jpg");
 										button7->Enabled = false;
+										Listo(2);
 									}
 								}
 							}
@@ -1997,12 +2176,14 @@ namespace SeleccionYJuego {
 					}
 				}
 			}
+
 			//////DE SELECCIONAR LUCHADOR
 		void deSeleccion(int Boton, Luchador^Luch){
 				if (Boton == 1)
 				{
 					quitarPorBoton(1, button1);
 					nuevoLuchador(LuchSelec->Nombre, LuchSelec->ImagenURL);
+					Listo(1);
 				}
 				else
 				{
@@ -2010,6 +2191,7 @@ namespace SeleccionYJuego {
 					{
 						quitarPorBoton(2, button2);
 						nuevoLuchador(LuchSelec->Nombre, LuchSelec->ImagenURL);
+						Listo(1);
 					}
 					else
 					{
@@ -2017,6 +2199,7 @@ namespace SeleccionYJuego {
 						{
 							quitarPorBoton(3, button3);
 							nuevoLuchador(LuchSelec->Nombre, LuchSelec->ImagenURL);
+							Listo(1);
 						}
 						else
 						{
@@ -2024,6 +2207,7 @@ namespace SeleccionYJuego {
 							{
 								quitarPorBoton(5, button5);
 								nuevoLuchador(LuchSelec->Nombre, LuchSelec->ImagenURL);
+								Listo(2);
 							}
 							else
 							{
@@ -2031,6 +2215,7 @@ namespace SeleccionYJuego {
 								{
 									quitarPorBoton(6, button6);
 									nuevoLuchador(LuchSelec->Nombre, LuchSelec->ImagenURL);
+									Listo(2);
 								}
 								else
 								{
@@ -2038,6 +2223,7 @@ namespace SeleccionYJuego {
 									{
 										quitarPorBoton(7, button7);
 										nuevoLuchador(LuchSelec->Nombre, LuchSelec->ImagenURL);
+										Listo(2);
 									}
 								}
 							}
@@ -2051,6 +2237,7 @@ namespace SeleccionYJuego {
 			{
 				quitarPorBoton(1, button1);
 				nuevoMercenario(MerSelec->Nombre, MerSelec->ImagenURL);
+				Listo(1);
 			}
 			else
 			{
@@ -2058,6 +2245,7 @@ namespace SeleccionYJuego {
 				{
 					quitarPorBoton(2, button2);
 					nuevoMercenario(MerSelec->Nombre, MerSelec->ImagenURL);
+					Listo(1);
 				}
 				else
 				{
@@ -2065,6 +2253,7 @@ namespace SeleccionYJuego {
 					{
 						quitarPorBoton(3, button3);
 						nuevoMercenario(MerSelec->Nombre, MerSelec->ImagenURL);
+						Listo(1);
 					}
 					else
 					{
@@ -2072,6 +2261,7 @@ namespace SeleccionYJuego {
 						{
 							quitarPorBoton(5, button5);
 							nuevoMercenario(MerSelec->Nombre, MerSelec->ImagenURL);
+							Listo(2);
 						}
 						else
 						{
@@ -2079,6 +2269,7 @@ namespace SeleccionYJuego {
 							{
 								quitarPorBoton(6, button6);
 								nuevoMercenario(MerSelec->Nombre, MerSelec->ImagenURL);
+								Listo(2);
 							}
 							else
 							{
@@ -2086,6 +2277,7 @@ namespace SeleccionYJuego {
 								{
 									quitarPorBoton(7, button7);
 									nuevoMercenario(MerSelec->Nombre, MerSelec->ImagenURL);
+									Listo(2);
 								}
 							}
 						}
@@ -2099,6 +2291,7 @@ namespace SeleccionYJuego {
 			{
 				quitarPorBoton(1, button1);
 				nuevoMirmidon(MirSelec->Nombre, MirSelec->ImagenURL);
+				Listo(1);
 			}
 			else
 			{
@@ -2106,6 +2299,7 @@ namespace SeleccionYJuego {
 				{
 					quitarPorBoton(2, button2);
 					nuevoMirmidon(MirSelec->Nombre, MirSelec->ImagenURL);
+					Listo(1);
 				}
 				else
 				{
@@ -2113,6 +2307,7 @@ namespace SeleccionYJuego {
 					{
 						quitarPorBoton(3, button3);
 						nuevoMirmidon(MirSelec->Nombre, MirSelec->ImagenURL);
+						Listo(1);
 					}
 					else
 					{
@@ -2120,6 +2315,7 @@ namespace SeleccionYJuego {
 						{
 							quitarPorBoton(5, button5);
 							nuevoMirmidon(MirSelec->Nombre, MirSelec->ImagenURL);
+							Listo(2);
 						}
 						else
 						{
@@ -2127,6 +2323,7 @@ namespace SeleccionYJuego {
 							{
 								quitarPorBoton(6, button6);
 								nuevoMirmidon(MirSelec->Nombre, MirSelec->ImagenURL);
+								Listo(2);
 							}
 							else
 							{
@@ -2134,6 +2331,7 @@ namespace SeleccionYJuego {
 								{
 									quitarPorBoton(7, button7);
 									nuevoMirmidon(MirSelec->Nombre, MirSelec->ImagenURL);
+									Listo(2);
 								}
 							}
 						}
@@ -2194,7 +2392,41 @@ namespace SeleccionYJuego {
 			P = nullptr;
 		}
 
-
+		void Listo(int Jugador){
+			switch (Jugador)
+			{
+			case 1:
+				if (Casilla1 == true && Casilla2 == true && Casilla3 == true && Casilla4 == true)
+				{
+					button17->Enabled = true;
+					J1Ready = false;
+				}
+				else
+				{
+					button17->Enabled = false;
+					J1Ready = false;
+					label1->Text = "Estatus: Eligiendo...";
+				}
+				break;
+			case 2:
+				if (Casilla5 == true && Casilla6 == true && Casilla7 == true && Casilla8 == true)
+				{
+					button18->Enabled = true;
+					J2Ready = false;
+				}
+				else
+				{
+					button18->Enabled = false;
+					J2Ready = false;
+					label2->Text = "Estatus: Eligiendo...";
+				}
+				break;
+			default:
+				MessageBox::Show("What are you trying to do, son?");
+				break;
+			}
+			
+		}
 
 
 
@@ -2216,6 +2448,11 @@ private: System::Void Juego_Load(System::Object^  sender, System::EventArgs^  e)
 			 button14->Enabled = false;
 			 button15->Enabled = false;
 			 button16->Enabled = false;
+			 button17->Enabled = false;
+			 button18->Enabled = false;
+			 button17->Text = "Listo!";
+			 button18->Text = "Listo!";
+			 pictureBox3->Load("VS.png");
 			 nuevoJinete("Gildarts", "Chucho.png");
 			 nuevoJinete("Agro", "Chucho.png");
 			 nuevoJinete("Wander", "Chucho.png");
@@ -2290,11 +2527,11 @@ private: System::Void button13_Click(System::Object^  sender, System::EventArgs^
 }
 private: System::Void button14_Click(System::Object^  sender, System::EventArgs^  e) {
 			 seleccionarSkin(1);
-			 if (Casilla1 == Casilla2 == Casilla3 == Casilla4)
+			 if (Casilla1 == true && Casilla2 == true && Casilla3 == true && Casilla4 == true)
 			 {
-				 MessageBox::Show("JUGADOR 1 ESTA LISTO PARA EL COMBATE!");
 				 button13->Enabled = false;
 				 button14->Enabled = false;
+				 Listo(1);
 
 			 }
 }
@@ -2584,14 +2821,57 @@ private: System::Void button15_Click(System::Object^  sender, System::EventArgs^
 }
 private: System::Void button16_Click(System::Object^  sender, System::EventArgs^  e) {
 			 seleccionarSkin(2);
-			 if (Casilla5 == Casilla5 == Casilla7 == Casilla8)
+			 if (Casilla5 == true && Casilla5 == true && Casilla7 == true && Casilla8 == true)
 			 {
-				 MessageBox::Show("JUGADOR 2 ESTA LISTO PARA EL COMBATE!");
 				 button15->Enabled = false;
 				 button16->Enabled = false;
+				 Listo(2);
 			 }
 }
 private: System::Void pictureBox2_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void button18_Click(System::Object^  sender, System::EventArgs^  e) {
+			 J2Ready = true;
+			 label2->Text = "Estatus: Listo!";
+			 MessageBox::Show("JUGADOR 2 ESTA LISTO PARA EL COMBATE!");
+			 button18->Enabled = false;
+			 comboBox2->Enabled = false;
+			 if ((J1Ready == J2Ready) == true)
+			 {
+				 MessageBox::Show("*inicia el juego*");
+			 }
+}
+private: System::Void button17_Click(System::Object^  sender, System::EventArgs^  e) {
+			 J1Ready = true;
+			 label1->Text = "Estatus: Listo!";
+			 comboBox1->Enabled = false;
+			 MessageBox::Show("JUGADOR 1 ESTA LISTO PARA EL COMBATE!");
+			 button17->Enabled = false;
+			 if ((J1Ready == J2Ready) == true)
+			 {
+				 MessageBox::Show("*inicia el juego*");
+				
+			 }
+}
+private: System::Void radioButton6_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void radioButton5_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void radioButton4_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void radioButton3_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void radioButton2_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void radioButton1_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void listBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void listBox2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
