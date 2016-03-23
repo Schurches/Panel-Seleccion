@@ -438,6 +438,7 @@ namespace SeleccionYJuego {
 			this->button2->TabIndex = 14;
 			this->button2->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Juego::button2_Click);
 			// 
 			// button3
 			// 
@@ -627,15 +628,20 @@ namespace SeleccionYJuego {
 
 		//Listas PTR y nodos auxiliares
 		static Jinete^PTR1 = nullptr;
-		static Jinete^ JinAux = nullptr;
+		static Jinete^JinAux = nullptr;
+		static Jinete^JinSelec = nullptr;
 		static Caballero^PTR2 = nullptr;
 		static Caballero^CabAux = nullptr;
+		static Caballero^CabSelec = nullptr;
 		static Luchador^PTR3 = nullptr;
 		static Luchador^LuchAux = nullptr;
+		static Luchador^LuchSelec = nullptr;
 		static Mercenario^PTR4 = nullptr;
 		static Mercenario^MerAux = nullptr;
+		static Mercenario^MerSelec = nullptr;
 		static Mirmidon^PTR5 = nullptr;
 		static Mirmidon^MirAux = nullptr;
+		static Mirmidon^MirSelec = nullptr;
 		//Contadores de personajes por lista
 		int ContJin = 0, ContCab = 0, ContLuch = 0, ContMer = 0, ContMir = 0, ContSkin=0;
 		//Booleanos de casillas ocupadas
@@ -1009,12 +1015,18 @@ namespace SeleccionYJuego {
 		void PersonajeSeleccionado(int Casilla){
 			if (comboBox1->SelectedItem->Equals("Jinete"))
 			{
+				JinSelec = JinAux;
 				Jinete^ P = gcnew Jinete();
 				P = PTR1;
 				while (P->Link != JinAux)
 				{
 					P = P->Link;
 				}
+				if (JinAux == PTR1)
+				{
+					PTR1 = PTR1->Link;
+				}
+
 				MostrarEnBotonesJIN(Casilla);
 				P->Link = JinAux->Link;
 				JinAux = nullptr;
@@ -1026,6 +1038,7 @@ namespace SeleccionYJuego {
 			{
 				if (comboBox1->SelectedItem->Equals("Caballero"))
 				{
+					CabSelec = CabAux;
 					Caballero^ P = gcnew Caballero();
 					P = PTR2;
 					while (P->Link != CabAux)
@@ -1043,6 +1056,7 @@ namespace SeleccionYJuego {
 				{
 					if (comboBox1->SelectedItem->Equals("Luchador"))
 					{
+						LuchSelec = LuchAux;
 						Luchador^ P = gcnew Luchador();
 						P = PTR3;
 						while (P->Link != LuchAux)
@@ -1060,6 +1074,7 @@ namespace SeleccionYJuego {
 					{
 						if (comboBox1->SelectedItem->Equals("Mercenario"))
 						{
+							MerSelec = MerAux;
 							Mercenario^ P = gcnew Mercenario();
 							P = PTR4;
 							while (P->Link != MerAux)
@@ -1077,6 +1092,7 @@ namespace SeleccionYJuego {
 						{
 							if (comboBox1->SelectedItem->Equals("Mirmidon"))
 							{
+								MirSelec = MirAux;
 								Mirmidon^ P = gcnew Mirmidon();
 								P = PTR5;
 								while (P->Link != MirAux)
@@ -1102,6 +1118,9 @@ namespace SeleccionYJuego {
 			}
 
 		}
+		String^ContenidoB1;
+		String^ContenidoB2;
+		String^ContenidoB3;
 		/////////////////////////////////SUBRUTINA PARA COLOCAR PERSONAJE ELEGIDO EN UN BOTON
 		////////SI SE ELIGIO UN JINETE
 		void MostrarEnBotonesJIN(int Boton){
@@ -1111,6 +1130,7 @@ namespace SeleccionYJuego {
 				button1->Enabled = true;
 				button1->BackgroundImage = Image::FromFile(JinAux->ImagenURL);
 				Casilla1 = true;
+				ContenidoB1 = "Jinete";
 			}
 			else
 			{
@@ -1120,6 +1140,7 @@ namespace SeleccionYJuego {
 					button2->Enabled = true;
 					button2->BackgroundImage = Image::FromFile(JinAux->ImagenURL);
 					Casilla2 = true;
+					ContenidoB2 = "Jinete";
 				}
 				else
 				{
@@ -1129,6 +1150,7 @@ namespace SeleccionYJuego {
 						button3->Enabled = true;
 						button3->BackgroundImage = Image::FromFile(JinAux->ImagenURL);
 						Casilla3 = true;
+						ContenidoB3 = "Jinete";
 					}
 				}
 			}
@@ -1142,6 +1164,7 @@ namespace SeleccionYJuego {
 				button1->Enabled = true;
 				button1->BackgroundImage = Image::FromFile(CabAux->ImagenURL);
 				Casilla1 = true;
+				ContenidoB1 = "Caballero";
 			}
 			else
 			{
@@ -1151,6 +1174,7 @@ namespace SeleccionYJuego {
 					button2->Enabled = true;
 					button2->BackgroundImage = Image::FromFile(CabAux->ImagenURL);
 					Casilla2 = true;
+					ContenidoB2 = "Caballero";
 				}
 				else
 				{
@@ -1160,6 +1184,7 @@ namespace SeleccionYJuego {
 						button3->Enabled = true;
 						button3->BackgroundImage = Image::FromFile(CabAux->ImagenURL);
 						Casilla3 = true;
+						ContenidoB3 = "Caballero";
 					}
 				}
 			}
@@ -1172,6 +1197,7 @@ namespace SeleccionYJuego {
 				button1->Enabled = true;
 				button1->BackgroundImage = Image::FromFile(LuchAux->ImagenURL);
 				Casilla1 = true;
+				ContenidoB1 = "Luchador";
 			}
 			else
 			{
@@ -1181,6 +1207,7 @@ namespace SeleccionYJuego {
 					button2->Enabled = true;
 					button2->BackgroundImage = Image::FromFile(LuchAux->ImagenURL);
 					Casilla2 = true;
+					ContenidoB2 = "Luchador";
 				}
 				else
 				{
@@ -1190,6 +1217,7 @@ namespace SeleccionYJuego {
 						button3->Enabled = true;
 						button3->BackgroundImage = Image::FromFile(LuchAux->ImagenURL);
 						Casilla3 = true;
+						ContenidoB3 = "Luchador";
 					}
 				}
 			}
@@ -1202,6 +1230,7 @@ namespace SeleccionYJuego {
 					button1->Enabled = true;
 					button1->BackgroundImage = Image::FromFile(MerAux->ImagenURL);
 					Casilla1 = true;
+					ContenidoB1 = "Mercenario";
 				}
 				else
 				{
@@ -1211,6 +1240,7 @@ namespace SeleccionYJuego {
 						button2->Enabled = true;
 						button2->BackgroundImage = Image::FromFile(MerAux->ImagenURL);
 						Casilla2 = true;
+						ContenidoB2 = "Mercenario";
 					}
 					else
 					{
@@ -1220,6 +1250,7 @@ namespace SeleccionYJuego {
 							button3->Enabled = true;
 							button3->BackgroundImage = Image::FromFile(MerAux->ImagenURL);
 							Casilla3 = true;
+							ContenidoB3 = "Mercenario";
 						}
 					}
 				}
@@ -1232,6 +1263,7 @@ namespace SeleccionYJuego {
 					button1->Enabled = true;
 					button1->BackgroundImage = Image::FromFile(MirAux->ImagenURL);
 					Casilla1 = true;
+					ContenidoB1 = "Mirmidor";
 				}
 				else
 				{
@@ -1241,6 +1273,7 @@ namespace SeleccionYJuego {
 						button2->Enabled = true;
 						button2->BackgroundImage = Image::FromFile(MirAux->ImagenURL);
 						Casilla2 = true;
+						ContenidoB2 = "Mirmidor";
 					}
 					else
 					{
@@ -1250,6 +1283,7 @@ namespace SeleccionYJuego {
 							button3->Enabled = true;
 							button3->BackgroundImage = Image::FromFile(MirAux->ImagenURL);
 							Casilla3 = true;
+							ContenidoB3 = "Mirmidor";
 						}
 					}
 				}
@@ -1263,6 +1297,42 @@ namespace SeleccionYJuego {
 				nuevoSkin(SkinSelecionado->Nombre,SkinSelecionado->URL);
 				button13->Enabled = true;
 				button14->Enabled = true;
+			}
+			/////DESELECCIONAR JINETE
+			void deSeleccion(int Boton, Jinete^Jin){
+				if (Boton == 1)
+				{
+					Casilla1 = false;
+					button9->Enabled = true;
+					button10->Enabled = true;
+					nuevoJinete(JinSelec->Nombre, JinSelec->ImagenURL);
+					button1->Text = "";
+					button1->BackgroundImage = Image::FromFile("OC.jpg");
+					button1->Enabled = false;
+				}
+				else
+				{
+					if (Boton == 2)
+					{
+						Casilla2 = false;
+						button9->Enabled = true;
+						button10->Enabled = true;
+						nuevoJinete(JinSelec->Nombre, JinSelec->ImagenURL);
+						button2->Text = "";
+						button2->BackgroundImage = Image::FromFile("OC.jpg");
+						button2->Enabled = false;
+					}
+					else
+					{
+						Casilla3 = false;
+						button9->Enabled = true;
+						button10->Enabled = true;
+						nuevoJinete(JinSelec->Nombre, JinSelec->ImagenURL);
+						button3->Text = "";
+						button3->BackgroundImage = Image::FromFile("OC.jpg");
+						button3->Enabled = false;
+					}
+				}
 			}
 		
 		
@@ -1443,8 +1513,39 @@ private: System::Void button14_Click(System::Object^  sender, System::EventArgs^
 			 }
 }
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-
-
+			 comboBox1->Enabled = true;
+			 comboBox1->Items->Add(ContenidoB1);
+			 if (ContenidoB1->Equals("Jinete"))
+			 {
+				 siguienteJinete();
+				 deSeleccion(1,JinSelec);
+			 }
+			 else
+			 {
+				 if (ContenidoB1->Equals("Caballero"))
+				 {
+					 // 
+//					 deSeleccion(1,CabSelec);
+				 }
+				 else
+				 {
+					 if (ContenidoB1->Equals("Mercenario"))
+					 {
+						 //deSeleccion(1,MerSelec);
+					 }
+					 else
+					 {
+						 if (ContenidoB1->Equals("Luchador"))
+						 {
+							// deSeleccion(1,LuchSelec);
+						 }
+						 else if (ContenidoB1->Equals("Mirmidor"))
+						 {
+						//	 deSeleccion(1,MirSelec);
+						 }
+					 }
+				 }
+			 }
 }
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
 			 siguienteSkin();
@@ -1453,6 +1554,10 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 			 button4->Text = "";
 			 button4->BackgroundImage = Image::FromFile("OC.jpg");
 			 button4->Enabled = false;
+
+}
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+
 
 }
 };
