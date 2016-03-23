@@ -75,6 +75,8 @@ namespace SeleccionYJuego {
 	private: System::Windows::Forms::Button^  button7;
 	private: System::Windows::Forms::Button^  button8;
 	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Button^  button16;
+	private: System::Windows::Forms::Button^  button15;
 
 
 	private:
@@ -94,6 +96,7 @@ namespace SeleccionYJuego {
 			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
+			this->button14 = (gcnew System::Windows::Forms::Button());
 			this->button13 = (gcnew System::Windows::Forms::Button());
 			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
@@ -105,8 +108,9 @@ namespace SeleccionYJuego {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
-			this->button14 = (gcnew System::Windows::Forms::Button());
+			this->button16 = (gcnew System::Windows::Forms::Button());
 			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
+			this->button15 = (gcnew System::Windows::Forms::Button());
 			this->radioButton6 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton5 = (gcnew System::Windows::Forms::RadioButton());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
@@ -157,30 +161,42 @@ namespace SeleccionYJuego {
 			// 
 			// groupBox5
 			// 
+			this->groupBox5->Controls->Add(this->button14);
 			this->groupBox5->Controls->Add(this->button13);
 			this->groupBox5->Controls->Add(this->radioButton3);
 			this->groupBox5->Controls->Add(this->radioButton2);
 			this->groupBox5->Controls->Add(this->radioButton1);
 			this->groupBox5->Location = System::Drawing::Point(249, 230);
 			this->groupBox5->Name = L"groupBox5";
-			this->groupBox5->Size = System::Drawing::Size(117, 134);
+			this->groupBox5->Size = System::Drawing::Size(117, 173);
 			this->groupBox5->TabIndex = 21;
 			this->groupBox5->TabStop = false;
 			this->groupBox5->Text = L"Jugador 1";
 			// 
+			// button14
+			// 
+			this->button14->Location = System::Drawing::Point(6, 144);
+			this->button14->Name = L"button14";
+			this->button14->Size = System::Drawing::Size(105, 23);
+			this->button14->TabIndex = 6;
+			this->button14->Text = L"Seleccionar";
+			this->button14->UseVisualStyleBackColor = true;
+			this->button14->Click += gcnew System::EventHandler(this, &Juego::button14_Click);
+			// 
 			// button13
 			// 
-			this->button13->Location = System::Drawing::Point(7, 105);
+			this->button13->Location = System::Drawing::Point(6, 89);
 			this->button13->Name = L"button13";
 			this->button13->Size = System::Drawing::Size(75, 23);
 			this->button13->TabIndex = 3;
-			this->button13->Text = L"button13";
+			this->button13->Text = L"Next Skin";
 			this->button13->UseVisualStyleBackColor = true;
+			this->button13->Click += gcnew System::EventHandler(this, &Juego::button13_Click);
 			// 
 			// radioButton3
 			// 
 			this->radioButton3->AutoSize = true;
-			this->radioButton3->Location = System::Drawing::Point(6, 68);
+			this->radioButton3->Location = System::Drawing::Point(6, 66);
 			this->radioButton3->Name = L"radioButton3";
 			this->radioButton3->Size = System::Drawing::Size(61, 17);
 			this->radioButton3->TabIndex = 2;
@@ -191,7 +207,7 @@ namespace SeleccionYJuego {
 			// radioButton2
 			// 
 			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(7, 45);
+			this->radioButton2->Location = System::Drawing::Point(6, 43);
 			this->radioButton2->Name = L"radioButton2";
 			this->radioButton2->Size = System::Drawing::Size(54, 17);
 			this->radioButton2->TabIndex = 1;
@@ -202,7 +218,7 @@ namespace SeleccionYJuego {
 			// radioButton1
 			// 
 			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(7, 21);
+			this->radioButton1->Location = System::Drawing::Point(6, 21);
 			this->radioButton1->Name = L"radioButton1";
 			this->radioButton1->Size = System::Drawing::Size(57, 17);
 			this->radioButton1->TabIndex = 0;
@@ -281,30 +297,31 @@ namespace SeleccionYJuego {
 			// 
 			// groupBox6
 			// 
-			this->groupBox6->Controls->Add(this->button14);
+			this->groupBox6->Controls->Add(this->button16);
 			this->groupBox6->Controls->Add(this->radioButton4);
+			this->groupBox6->Controls->Add(this->button15);
 			this->groupBox6->Controls->Add(this->radioButton6);
 			this->groupBox6->Controls->Add(this->radioButton5);
 			this->groupBox6->Location = System::Drawing::Point(20, 237);
 			this->groupBox6->Name = L"groupBox6";
-			this->groupBox6->Size = System::Drawing::Size(117, 127);
+			this->groupBox6->Size = System::Drawing::Size(117, 166);
 			this->groupBox6->TabIndex = 23;
 			this->groupBox6->TabStop = false;
 			this->groupBox6->Text = L"Jugador 2";
 			// 
-			// button14
+			// button16
 			// 
-			this->button14->Location = System::Drawing::Point(7, 97);
-			this->button14->Name = L"button14";
-			this->button14->Size = System::Drawing::Size(75, 23);
-			this->button14->TabIndex = 6;
-			this->button14->Text = L"button14";
-			this->button14->UseVisualStyleBackColor = true;
+			this->button16->Location = System::Drawing::Point(7, 137);
+			this->button16->Name = L"button16";
+			this->button16->Size = System::Drawing::Size(104, 23);
+			this->button16->TabIndex = 25;
+			this->button16->Text = L"Seleccionar";
+			this->button16->UseVisualStyleBackColor = true;
 			// 
 			// radioButton4
 			// 
 			this->radioButton4->AutoSize = true;
-			this->radioButton4->Location = System::Drawing::Point(6, 19);
+			this->radioButton4->Location = System::Drawing::Point(7, 19);
 			this->radioButton4->Name = L"radioButton4";
 			this->radioButton4->Size = System::Drawing::Size(57, 17);
 			this->radioButton4->TabIndex = 3;
@@ -312,10 +329,19 @@ namespace SeleccionYJuego {
 			this->radioButton4->Text = L"Hacha";
 			this->radioButton4->UseVisualStyleBackColor = true;
 			// 
+			// button15
+			// 
+			this->button15->Location = System::Drawing::Point(6, 88);
+			this->button15->Name = L"button15";
+			this->button15->Size = System::Drawing::Size(75, 23);
+			this->button15->TabIndex = 24;
+			this->button15->Text = L"Next Skin";
+			this->button15->UseVisualStyleBackColor = true;
+			// 
 			// radioButton6
 			// 
 			this->radioButton6->AutoSize = true;
-			this->radioButton6->Location = System::Drawing::Point(6, 65);
+			this->radioButton6->Location = System::Drawing::Point(7, 65);
 			this->radioButton6->Name = L"radioButton6";
 			this->radioButton6->Size = System::Drawing::Size(61, 17);
 			this->radioButton6->TabIndex = 5;
@@ -326,7 +352,7 @@ namespace SeleccionYJuego {
 			// radioButton5
 			// 
 			this->radioButton5->AutoSize = true;
-			this->radioButton5->Location = System::Drawing::Point(6, 42);
+			this->radioButton5->Location = System::Drawing::Point(7, 42);
 			this->radioButton5->Name = L"radioButton5";
 			this->radioButton5->Size = System::Drawing::Size(54, 17);
 			this->radioButton5->TabIndex = 4;
@@ -511,6 +537,16 @@ namespace SeleccionYJuego {
 
 		}
 
+		///////////DECLARANDO SKINS DEL JUGADOR
+		ref struct Skin
+		{
+			String^URL;
+			String^Nombre;
+			String^Arma;
+			Skin^Link;
+		};
+		static Skin^PTR6 = nullptr;
+		static Skin^SkinPlayer = nullptr;
 
 		//////////////////////////////////////////////DECLARANDO LAS CARACTERISTICAS DE LOS PERSONAJES
 		//Jinete
@@ -598,12 +634,29 @@ namespace SeleccionYJuego {
 		static Mirmidon^PTR5 = nullptr;
 		static Mirmidon^MirAux = nullptr;
 		//Contadores de personajes por lista
-		int ContJin = 0, ContCab = 0, ContLuch = 0, ContMer = 0, ContMir = 0;
+		int ContJin = 0, ContCab = 0, ContLuch = 0, ContMer = 0, ContMir = 0, ContSkin=0;
 		//Booleanos de casillas ocupadas
 		bool Casilla1 = false, Casilla2 = false, Casilla3 = false, Casilla4 = false;
 
 		////////////////MOSTRAR INFORMACION DEL PRIMER PERSONAJE DE LA LISTA (ESTO SUCEDE CUANDO SE DA CLICK A ALGUN ITEM DEL COMBOBOX)
+		////////////////SIGUIENTE SKIN
+		void siguienteSkin(){
+			if (SkinPlayer==nullptr)
+			{
+				SkinPlayer = PTR6;
+			}
+			else
+			{
+				SkinPlayer = SkinPlayer->Link;
+			}
+			listBox1->Items->Clear();
+			listBox1->Items->Add("SKIN: " + SkinPlayer->Nombre);
+			pictureBox1->Load(SkinPlayer->URL);
+		}
+		
+
 		////////////////ESTO TAMBIEN SIRVE PARA CUANDO PASAN AL SIGUIENTE PERSONAJE DE ALGUNA DE LAS UNIDADES
+		///////////////PARA JINETE
 		void siguienteJinete(){
 			if (JinAux == nullptr)
 			{
@@ -718,7 +771,35 @@ namespace SeleccionYJuego {
 
 
 
-		////////////////////////////////////////////////////CON LISTA ENLAZADA CIRCULAR
+		/////////////////////////////////////////////////////CON LISTA ENLAZADA CIRCULAR
+		//////////////////////////CREANDO NUEVO SKIN
+		void nuevoSkin(String^Name, String^URL){
+			ContSkin++;
+			Skin^P = gcnew Skin();
+			P->Nombre = Name;
+			P->URL = URL;
+			if (PTR6 == nullptr)
+			{
+				PTR6 = P;
+				PTR6->Link = PTR6;
+				P = nullptr;
+			}
+			else
+			{
+				Skin^Q = gcnew Skin();
+				Q = PTR6;
+				while (Q->Link != PTR6)
+				{
+					Q = Q->Link;
+				}
+				Q->Link = P;
+				P->Link = PTR6;
+				Q = nullptr;
+				P = nullptr;
+			}
+
+		}
+
 		//////////////////////////CREANDO NUEVO PERSONAJE
 		//JINETE
 		void nuevoJinete(String^Name, String^URL){
@@ -873,6 +954,39 @@ namespace SeleccionYJuego {
 				siguienteMirmidor();
 			}
 		}
+		////////////////SELECCION DE SKINS
+		void seleccionarSkin(){
+			Skin^P = gcnew Skin();
+			P = PTR6;
+			while (P->Link != SkinPlayer)
+			{
+				P = P->Link;
+			}
+			P->Link = SkinPlayer->Link;
+			///Poniendo el arma en el nodo
+			if (radioButton1->Checked == true)
+			{
+				SkinPlayer->Arma = radioButton1->Text;
+			}
+			else
+			{
+				if (radioButton2->Checked == true)
+				{
+					SkinPlayer->Arma = radioButton2->Text;
+				}
+				else
+				{
+					SkinPlayer->Arma = radioButton3->Text;
+				}
+			}
+			button4->Enabled = true;
+			button4->BackgroundImage = Image::FromFile(SkinPlayer->URL);
+			button4->Text = SkinPlayer->Nombre;
+			MessageBox::Show("Seleccionaste el arma: '" + SkinPlayer->Arma + "' y el skin: '" + SkinPlayer->Nombre + "'");
+			Casilla4 = true;
+			P = nullptr;
+			SkinPlayer = nullptr;
+		}
 		////////////////SUBRUTINA PARA SELECCIONAR ALGUN PERSONAJE 
 		void PersonajeSeleccionado(int Casilla){
 			if (comboBox1->SelectedItem->Equals("Jinete"))
@@ -965,6 +1079,7 @@ namespace SeleccionYJuego {
 			if ((Casilla1 == true) && (Casilla2 == true) && (Casilla3 == true))
 			{
 				comboBox1->Enabled = false;
+				button13->Enabled = true;
 				MessageBox::Show("Ahora selecciona tu skin");
 			}
 
@@ -1223,6 +1338,8 @@ private: System::Void Juego_Load(System::Object^  sender, System::EventArgs^  e)
 			 button12->Enabled = false;
 			 button13->Enabled = false;
 			 button14->Enabled = false;
+			 button15->Enabled = false;
+			 button16->Enabled = false;
 			 nuevoJinete("Gildarts","Chucho.png");
 			 nuevoJinete("Agro", "Chucho.png");
 			 nuevoJinete("Wander", "Chucho.png");
@@ -1245,6 +1362,10 @@ private: System::Void Juego_Load(System::Object^  sender, System::EventArgs^  e)
 			 nuevoMirmidon("Lacayo10", "Chucho5.png");
 			 nuevoMirmidon("Lacayo11", "Chucho5.png");
 			 nuevoMirmidon("Lacayo12", "Chucho5.png");
+			 nuevoSkin("Luffy","Luffy.png");
+			 nuevoSkin("Nami", "Nami.jpg");
+			 nuevoSkin("Zoro", "Zoro.png");
+			 nuevoSkin("Sanji", "Sanji.png");
 			 /*
 			 mostrar1();
 			 mostrar2();
@@ -1278,6 +1399,17 @@ private: System::Void button10_Click(System::Object^  sender, System::EventArgs^
 						 MessageBox::Show("Ya has seleccionado 3 personajes!");
 					 }
 				 }
+			 }
+}
+private: System::Void button13_Click(System::Object^  sender, System::EventArgs^  e) {
+			 button14->Enabled = true;
+			 siguienteSkin();
+}
+private: System::Void button14_Click(System::Object^  sender, System::EventArgs^  e) {
+			 seleccionarSkin();
+			 if (Casilla1 == Casilla2 == Casilla3 == Casilla4)
+			 {
+				 MessageBox::Show("JUGADOR 1 ESTA LISTO PARA EL COMBATE!");
 			 }
 }
 };
