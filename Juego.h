@@ -154,74 +154,86 @@ namespace SeleccionYJuego {
 				static_cast<System::Byte>(0)));
 			this->listBox1->FormattingEnabled = true;
 			this->listBox1->ItemHeight = 17;
-			this->listBox1->Location = System::Drawing::Point(6, 230);
+			this->listBox1->Location = System::Drawing::Point(148, 19);
 			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(219, 140);
+			this->listBox1->Size = System::Drawing::Size(230, 140);
 			this->listBox1->TabIndex = 0;
 			this->listBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &Juego::listBox1_SelectedIndexChanged);
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
+			this->groupBox1->Controls->Add(this->button14);
 			this->groupBox1->Controls->Add(this->button17);
 			this->groupBox1->Controls->Add(this->groupBox5);
 			this->groupBox1->Controls->Add(this->groupBox4);
 			this->groupBox1->Controls->Add(this->pictureBox1);
 			this->groupBox1->Controls->Add(this->listBox1);
-			this->groupBox1->Location = System::Drawing::Point(2, 23);
+			this->groupBox1->ForeColor = System::Drawing::Color::White;
+			this->groupBox1->Location = System::Drawing::Point(7, 23);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(384, 426);
+			this->groupBox1->Size = System::Drawing::Size(384, 300);
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Jugador 1";
 			// 
 			// button17
 			// 
+			this->button17->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
+			this->button17->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button17->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button17->Location = System::Drawing::Point(31, 383);
+			this->button17->Location = System::Drawing::Point(281, 235);
 			this->button17->Name = L"button17";
-			this->button17->Size = System::Drawing::Size(142, 37);
+			this->button17->Size = System::Drawing::Size(90, 42);
 			this->button17->TabIndex = 22;
 			this->button17->Text = L"button17";
-			this->button17->UseVisualStyleBackColor = true;
+			this->button17->UseVisualStyleBackColor = false;
 			this->button17->Click += gcnew System::EventHandler(this, &Juego::button17_Click);
 			// 
 			// groupBox5
 			// 
-			this->groupBox5->Controls->Add(this->button14);
 			this->groupBox5->Controls->Add(this->button13);
 			this->groupBox5->Controls->Add(this->radioButton3);
 			this->groupBox5->Controls->Add(this->radioButton2);
 			this->groupBox5->Controls->Add(this->radioButton1);
-			this->groupBox5->Location = System::Drawing::Point(249, 230);
+			this->groupBox5->Location = System::Drawing::Point(173, 165);
 			this->groupBox5->Name = L"groupBox5";
-			this->groupBox5->Size = System::Drawing::Size(117, 173);
+			this->groupBox5->Size = System::Drawing::Size(98, 116);
 			this->groupBox5->TabIndex = 21;
 			this->groupBox5->TabStop = false;
 			this->groupBox5->Text = L"Jugador 1";
 			// 
 			// button14
 			// 
+			this->button14->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
+			this->button14->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button14->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button14->Location = System::Drawing::Point(6, 144);
+			this->button14->Location = System::Drawing::Point(281, 173);
 			this->button14->Name = L"button14";
-			this->button14->Size = System::Drawing::Size(105, 23);
+			this->button14->Size = System::Drawing::Size(90, 43);
 			this->button14->TabIndex = 6;
 			this->button14->Text = L"Seleccionar";
-			this->button14->UseVisualStyleBackColor = true;
+			this->button14->UseVisualStyleBackColor = false;
 			this->button14->Click += gcnew System::EventHandler(this, &Juego::button14_Click);
 			// 
 			// button13
 			// 
+			this->button13->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
+			this->button13->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button13->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button13->Location = System::Drawing::Point(6, 89);
+			this->button13->Location = System::Drawing::Point(6, 85);
 			this->button13->Name = L"button13";
-			this->button13->Size = System::Drawing::Size(75, 23);
+			this->button13->Size = System::Drawing::Size(85, 23);
 			this->button13->TabIndex = 3;
 			this->button13->Text = L"Next Skin";
-			this->button13->UseVisualStyleBackColor = true;
+			this->button13->UseVisualStyleBackColor = false;
 			this->button13->Click += gcnew System::EventHandler(this, &Juego::button13_Click);
 			// 
 			// radioButton3
@@ -229,7 +241,7 @@ namespace SeleccionYJuego {
 			this->radioButton3->AutoSize = true;
 			this->radioButton3->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->radioButton3->Location = System::Drawing::Point(6, 66);
+			this->radioButton3->Location = System::Drawing::Point(6, 57);
 			this->radioButton3->Name = L"radioButton3";
 			this->radioButton3->Size = System::Drawing::Size(67, 21);
 			this->radioButton3->TabIndex = 2;
@@ -243,7 +255,7 @@ namespace SeleccionYJuego {
 			this->radioButton2->AutoSize = true;
 			this->radioButton2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->radioButton2->Location = System::Drawing::Point(6, 43);
+			this->radioButton2->Location = System::Drawing::Point(6, 34);
 			this->radioButton2->Name = L"radioButton2";
 			this->radioButton2->Size = System::Drawing::Size(60, 21);
 			this->radioButton2->TabIndex = 1;
@@ -257,7 +269,7 @@ namespace SeleccionYJuego {
 			this->radioButton1->AutoSize = true;
 			this->radioButton1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->radioButton1->Location = System::Drawing::Point(6, 21);
+			this->radioButton1->Location = System::Drawing::Point(6, 12);
 			this->radioButton1->Name = L"radioButton1";
 			this->radioButton1->Size = System::Drawing::Size(62, 21);
 			this->radioButton1->TabIndex = 0;
@@ -271,7 +283,7 @@ namespace SeleccionYJuego {
 			this->groupBox4->Controls->Add(this->button10);
 			this->groupBox4->Controls->Add(this->comboBox1);
 			this->groupBox4->Controls->Add(this->button9);
-			this->groupBox4->Location = System::Drawing::Point(231, 19);
+			this->groupBox4->Location = System::Drawing::Point(8, 165);
 			this->groupBox4->Name = L"groupBox4";
 			this->groupBox4->Size = System::Drawing::Size(135, 116);
 			this->groupBox4->TabIndex = 20;
@@ -280,14 +292,17 @@ namespace SeleccionYJuego {
 			// 
 			// button10
 			// 
+			this->button10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
+			this->button10->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button10->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button10->Location = System::Drawing::Point(7, 76);
+			this->button10->Location = System::Drawing::Point(12, 82);
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(112, 23);
 			this->button10->TabIndex = 23;
 			this->button10->Text = L"Seleccionar";
-			this->button10->UseVisualStyleBackColor = true;
+			this->button10->UseVisualStyleBackColor = false;
 			this->button10->Click += gcnew System::EventHandler(this, &Juego::button10_Click);
 			// 
 			// comboBox1
@@ -299,7 +314,7 @@ namespace SeleccionYJuego {
 				L"Jinete", L"Caballero", L"Luchador", L"Mercenario",
 					L"Mirmidon"
 			});
-			this->comboBox1->Location = System::Drawing::Point(7, 20);
+			this->comboBox1->Location = System::Drawing::Point(12, 18);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(112, 25);
 			this->comboBox1->TabIndex = 0;
@@ -307,77 +322,91 @@ namespace SeleccionYJuego {
 			// 
 			// button9
 			// 
+			this->button9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
+			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button9->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button9->Location = System::Drawing::Point(6, 47);
+			this->button9->Location = System::Drawing::Point(12, 53);
 			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(113, 23);
+			this->button9->Size = System::Drawing::Size(112, 23);
 			this->button9->TabIndex = 22;
 			this->button9->Text = L"Next Character";
-			this->button9->UseVisualStyleBackColor = true;
+			this->button9->UseVisualStyleBackColor = false;
 			this->button9->Click += gcnew System::EventHandler(this, &Juego::button9_Click);
 			// 
 			// pictureBox1
 			// 
+			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(6, 19);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(219, 191);
+			this->pictureBox1->Size = System::Drawing::Size(137, 140);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
 			// 
 			// groupBox2
 			// 
+			this->groupBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
+			this->groupBox2->Controls->Add(this->button16);
 			this->groupBox2->Controls->Add(this->button18);
 			this->groupBox2->Controls->Add(this->groupBox6);
 			this->groupBox2->Controls->Add(this->groupBox3);
 			this->groupBox2->Controls->Add(this->listBox2);
 			this->groupBox2->Controls->Add(this->pictureBox2);
+			this->groupBox2->ForeColor = System::Drawing::Color::White;
 			this->groupBox2->Location = System::Drawing::Point(689, 23);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(383, 426);
+			this->groupBox2->Size = System::Drawing::Size(383, 300);
 			this->groupBox2->TabIndex = 12;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Jugador 2";
+			this->groupBox2->Enter += gcnew System::EventHandler(this, &Juego::groupBox2_Enter);
 			// 
 			// button18
 			// 
+			this->button18->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
+			this->button18->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button18->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button18->Location = System::Drawing::Point(208, 380);
+			this->button18->Location = System::Drawing::Point(16, 239);
 			this->button18->Name = L"button18";
-			this->button18->Size = System::Drawing::Size(132, 40);
+			this->button18->Size = System::Drawing::Size(87, 40);
 			this->button18->TabIndex = 23;
 			this->button18->Text = L"button18";
-			this->button18->UseVisualStyleBackColor = true;
+			this->button18->UseVisualStyleBackColor = false;
 			this->button18->Click += gcnew System::EventHandler(this, &Juego::button18_Click);
 			// 
 			// groupBox6
 			// 
-			this->groupBox6->Controls->Add(this->button16);
 			this->groupBox6->Controls->Add(this->radioButton4);
 			this->groupBox6->Controls->Add(this->button15);
 			this->groupBox6->Controls->Add(this->radioButton6);
 			this->groupBox6->Controls->Add(this->radioButton5);
-			this->groupBox6->Location = System::Drawing::Point(20, 237);
+			this->groupBox6->Location = System::Drawing::Point(115, 165);
 			this->groupBox6->Name = L"groupBox6";
-			this->groupBox6->Size = System::Drawing::Size(117, 166);
+			this->groupBox6->Size = System::Drawing::Size(110, 116);
 			this->groupBox6->TabIndex = 23;
 			this->groupBox6->TabStop = false;
 			this->groupBox6->Text = L"Jugador 2";
 			// 
 			// button16
 			// 
+			this->button16->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
+			this->button16->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button16->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button16->Location = System::Drawing::Point(7, 137);
+			this->button16->Location = System::Drawing::Point(16, 171);
 			this->button16->Name = L"button16";
-			this->button16->Size = System::Drawing::Size(104, 23);
+			this->button16->Size = System::Drawing::Size(88, 43);
 			this->button16->TabIndex = 25;
 			this->button16->Text = L"Seleccionar";
-			this->button16->UseVisualStyleBackColor = true;
+			this->button16->UseVisualStyleBackColor = false;
 			this->button16->Click += gcnew System::EventHandler(this, &Juego::button16_Click);
 			// 
 			// radioButton4
@@ -385,7 +414,7 @@ namespace SeleccionYJuego {
 			this->radioButton4->AutoSize = true;
 			this->radioButton4->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->radioButton4->Location = System::Drawing::Point(7, 19);
+			this->radioButton4->Location = System::Drawing::Point(6, 12);
 			this->radioButton4->Name = L"radioButton4";
 			this->radioButton4->Size = System::Drawing::Size(62, 21);
 			this->radioButton4->TabIndex = 3;
@@ -396,14 +425,17 @@ namespace SeleccionYJuego {
 			// 
 			// button15
 			// 
+			this->button15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
+			this->button15->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button15->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button15->Location = System::Drawing::Point(6, 88);
+			this->button15->Location = System::Drawing::Point(7, 82);
 			this->button15->Name = L"button15";
-			this->button15->Size = System::Drawing::Size(75, 23);
+			this->button15->Size = System::Drawing::Size(84, 23);
 			this->button15->TabIndex = 24;
 			this->button15->Text = L"Next Skin";
-			this->button15->UseVisualStyleBackColor = true;
+			this->button15->UseVisualStyleBackColor = false;
 			this->button15->Click += gcnew System::EventHandler(this, &Juego::button15_Click);
 			// 
 			// radioButton6
@@ -411,7 +443,7 @@ namespace SeleccionYJuego {
 			this->radioButton6->AutoSize = true;
 			this->radioButton6->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->radioButton6->Location = System::Drawing::Point(7, 65);
+			this->radioButton6->Location = System::Drawing::Point(7, 57);
 			this->radioButton6->Name = L"radioButton6";
 			this->radioButton6->Size = System::Drawing::Size(67, 21);
 			this->radioButton6->TabIndex = 5;
@@ -425,7 +457,7 @@ namespace SeleccionYJuego {
 			this->radioButton5->AutoSize = true;
 			this->radioButton5->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->radioButton5->Location = System::Drawing::Point(7, 42);
+			this->radioButton5->Location = System::Drawing::Point(7, 34);
 			this->radioButton5->Name = L"radioButton5";
 			this->radioButton5->Size = System::Drawing::Size(60, 21);
 			this->radioButton5->TabIndex = 4;
@@ -439,35 +471,41 @@ namespace SeleccionYJuego {
 			this->groupBox3->Controls->Add(this->button12);
 			this->groupBox3->Controls->Add(this->button11);
 			this->groupBox3->Controls->Add(this->comboBox2);
-			this->groupBox3->Location = System::Drawing::Point(20, 25);
+			this->groupBox3->Location = System::Drawing::Point(244, 165);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(131, 110);
+			this->groupBox3->Size = System::Drawing::Size(131, 116);
 			this->groupBox3->TabIndex = 22;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"Seleccionar Unidad";
 			// 
 			// button12
 			// 
+			this->button12->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
+			this->button12->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button12->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button12->Location = System::Drawing::Point(6, 76);
+			this->button12->Location = System::Drawing::Point(6, 83);
 			this->button12->Name = L"button12";
 			this->button12->Size = System::Drawing::Size(119, 23);
 			this->button12->TabIndex = 25;
 			this->button12->Text = L"Seleccionar";
-			this->button12->UseVisualStyleBackColor = true;
+			this->button12->UseVisualStyleBackColor = false;
 			this->button12->Click += gcnew System::EventHandler(this, &Juego::button12_Click);
 			// 
 			// button11
 			// 
+			this->button11->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
+			this->button11->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button11->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button11->Location = System::Drawing::Point(6, 47);
+			this->button11->Location = System::Drawing::Point(6, 54);
 			this->button11->Name = L"button11";
 			this->button11->Size = System::Drawing::Size(119, 23);
 			this->button11->TabIndex = 24;
 			this->button11->Text = L"Next Character";
-			this->button11->UseVisualStyleBackColor = true;
+			this->button11->UseVisualStyleBackColor = false;
 			this->button11->Click += gcnew System::EventHandler(this, &Juego::button11_Click);
 			// 
 			// comboBox2
@@ -491,19 +529,20 @@ namespace SeleccionYJuego {
 				static_cast<System::Byte>(0)));
 			this->listBox2->FormattingEnabled = true;
 			this->listBox2->ItemHeight = 17;
-			this->listBox2->Location = System::Drawing::Point(157, 230);
+			this->listBox2->Location = System::Drawing::Point(8, 19);
 			this->listBox2->Name = L"listBox2";
-			this->listBox2->Size = System::Drawing::Size(219, 140);
+			this->listBox2->Size = System::Drawing::Size(230, 140);
 			this->listBox2->TabIndex = 1;
 			this->listBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &Juego::listBox2_SelectedIndexChanged);
 			// 
 			// pictureBox2
 			// 
+			this->pictureBox2->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(157, 19);
+			this->pictureBox2->Location = System::Drawing::Point(244, 19);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(218, 191);
+			this->pictureBox2->Size = System::Drawing::Size(131, 140);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox2->TabIndex = 0;
 			this->pictureBox2->TabStop = false;
@@ -511,121 +550,146 @@ namespace SeleccionYJuego {
 			// 
 			// button1
 			// 
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
 			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button1->Location = System::Drawing::Point(392, 33);
+			this->button1->Location = System::Drawing::Point(211, 329);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(79, 64);
 			this->button1->TabIndex = 13;
 			this->button1->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &Juego::button1_Click);
 			// 
 			// button2
 			// 
+			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
 			this->button2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button2->Location = System::Drawing::Point(392, 132);
+			this->button2->Location = System::Drawing::Point(108, 329);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(79, 64);
 			this->button2->TabIndex = 14;
 			this->button2->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &Juego::button2_Click);
 			// 
 			// button3
 			// 
+			this->button3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
 			this->button3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button3->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button3->Location = System::Drawing::Point(392, 274);
+			this->button3->Location = System::Drawing::Point(7, 329);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(79, 64);
 			this->button3->TabIndex = 15;
 			this->button3->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->button3->UseVisualStyleBackColor = true;
+			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &Juego::button3_Click);
 			// 
 			// button4
 			// 
+			this->button4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
 			this->button4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button4->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button4->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button4->Location = System::Drawing::Point(392, 385);
+			this->button4->Location = System::Drawing::Point(311, 329);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(79, 64);
 			this->button4->TabIndex = 16;
 			this->button4->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->button4->UseVisualStyleBackColor = true;
+			this->button4->UseVisualStyleBackColor = false;
 			this->button4->Click += gcnew System::EventHandler(this, &Juego::button4_Click);
 			// 
 			// button5
 			// 
+			this->button5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
 			this->button5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button5->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button5->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button5->Location = System::Drawing::Point(604, 33);
+			this->button5->Location = System::Drawing::Point(785, 329);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(79, 64);
 			this->button5->TabIndex = 17;
 			this->button5->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->button5->UseVisualStyleBackColor = true;
+			this->button5->UseVisualStyleBackColor = false;
 			this->button5->Click += gcnew System::EventHandler(this, &Juego::button5_Click);
 			// 
 			// button6
 			// 
+			this->button6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
 			this->button6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button6->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button6->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button6->Location = System::Drawing::Point(604, 132);
+			this->button6->Location = System::Drawing::Point(891, 329);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(79, 64);
 			this->button6->TabIndex = 18;
 			this->button6->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->button6->UseVisualStyleBackColor = true;
+			this->button6->UseVisualStyleBackColor = false;
 			this->button6->Click += gcnew System::EventHandler(this, &Juego::button6_Click);
 			// 
 			// button7
 			// 
+			this->button7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
 			this->button7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button7->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button7->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button7->Location = System::Drawing::Point(604, 274);
+			this->button7->Location = System::Drawing::Point(993, 329);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(79, 64);
 			this->button7->TabIndex = 19;
 			this->button7->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->button7->UseVisualStyleBackColor = true;
+			this->button7->UseVisualStyleBackColor = false;
 			this->button7->Click += gcnew System::EventHandler(this, &Juego::button7_Click);
 			// 
 			// button8
 			// 
+			this->button8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(140)), static_cast<System::Int32>(static_cast<System::Byte>(120)),
+				static_cast<System::Int32>(static_cast<System::Byte>(100)), static_cast<System::Int32>(static_cast<System::Byte>(100)));
 			this->button8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->button8->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button8->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button8->Location = System::Drawing::Point(604, 385);
+			this->button8->Location = System::Drawing::Point(690, 329);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(79, 64);
 			this->button8->TabIndex = 20;
 			this->button8->TextAlign = System::Drawing::ContentAlignment::BottomCenter;
-			this->button8->UseVisualStyleBackColor = true;
+			this->button8->UseVisualStyleBackColor = false;
 			this->button8->Click += gcnew System::EventHandler(this, &Juego::button8_Click);
 			// 
 			// pictureBox3
 			// 
-			this->pictureBox3->Location = System::Drawing::Point(487, 211);
+			this->pictureBox3->BackColor = System::Drawing::Color::White;
+			this->pictureBox3->Location = System::Drawing::Point(439, 153);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(100, 50);
+			this->pictureBox3->Size = System::Drawing::Size(209, 170);
 			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox3->TabIndex = 21;
 			this->pictureBox3->TabStop = false;
@@ -633,11 +697,13 @@ namespace SeleccionYJuego {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->BackColor = System::Drawing::Color::Black;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(12, 7);
+			this->label1->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->label1->Location = System::Drawing::Point(24, 407);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(52, 17);
+			this->label1->Size = System::Drawing::Size(86, 28);
 			this->label1->TabIndex = 22;
 			this->label1->Text = L"Estatus:";
 			this->label1->Click += gcnew System::EventHandler(this, &Juego::label1_Click);
@@ -645,11 +711,13 @@ namespace SeleccionYJuego {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label2->BackColor = System::Drawing::Color::Black;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(709, 4);
+			this->label2->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->label2->Location = System::Drawing::Point(721, 407);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(55, 17);
+			this->label2->Size = System::Drawing::Size(91, 28);
 			this->label2->TabIndex = 23;
 			this->label2->Text = L"Estatus: ";
 			this->label2->Click += gcnew System::EventHandler(this, &Juego::label2_Click);
@@ -658,7 +726,8 @@ namespace SeleccionYJuego {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1084, 461);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->ClientSize = System::Drawing::Size(1084, 450);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox3);
@@ -2872,6 +2941,8 @@ private: System::Void listBox2_SelectedIndexChanged(System::Object^  sender, Sys
 private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void groupBox2_Enter(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
