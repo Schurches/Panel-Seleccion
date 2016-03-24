@@ -773,6 +773,8 @@ namespace SeleccionYJuego {
 			Skin^Link;
 		};
 		static Skin^PTR6 = nullptr;
+		static Skin^PTR7 = nullptr;
+		static Skin^PTR8 = nullptr;
 		static Skin^SkinPlayer = nullptr;
 		static Skin^SkinPlayer2 = nullptr;
 		static Skin^SkinSelecionado2 = nullptr;
@@ -865,59 +867,131 @@ namespace SeleccionYJuego {
 		static Mirmidon^PTR5 = nullptr;
 		static Mirmidon^MirAux = nullptr;
 		static Mirmidon^MirSelec = nullptr;
+		String^ContenidoB1;
+		String^ContenidoB2;
+		String^ContenidoB3;
+		String^ContenidoB5;
+		String^ContenidoB6;
+		String^ContenidoB7;
 		//Contadores de personajes por lista
 		int ContJin = 0, ContCab = 0, ContLuch = 0, ContMer = 0, ContMir = 0, ContSkin=0;
 		//Booleanos de casillas ocupadas
 		bool Casilla1 = false, Casilla2 = false, Casilla3 = false, Casilla4 = false, Casilla5 = false, Casilla6 = false, Casilla7 = false, Casilla8 = false;
 		bool J1Ready=false, J2Ready = false;
+		int queLista = 0, queLista2 = 0;
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////SIGUIENTES SKIN//////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////MOSTRAR INFORMACION DEL PRIMER PERSONAJE DE LA LISTA (ESTO SUCEDE CUANDO SE DA CLICK A ALGUN ITEM DEL COMBOBOX)
 		////////////////SIGUIENTE SKIN
-
-		void MostrarSkin(Skin^Jugador, PictureBox^ Imagen, ListBox^Informacion){
-			if (Jugador == nullptr)
-			{
-				Jugador = PTR6;
-			}
-			else
-			{
-				Jugador = Jugador->Link;
-			}
-			Informacion->Items->Clear();
-			Informacion->Items->Add("SKIN: " + Jugador->Nombre);
-			Imagen->Load(Jugador->URL);
-		}
-
-
-
-
 		void siguienteSkin(int Jugador){
 			if (Jugador == 1)
 			{
-				if (SkinPlayer == nullptr)
+				if (radioButton1->Checked == true)
 				{
-					SkinPlayer = PTR6;
+					if (queLista != 6 || SkinPlayer == nullptr)
+					{
+						SkinPlayer = PTR6;
+						queLista = 6;
+						
+					}
+					else
+					{
+						SkinPlayer = SkinPlayer->Link;
+					}
+					listBox1->Items->Clear();
+					listBox1->Items->Add("SKIN: " + SkinPlayer->Nombre);
+					pictureBox1->Load(SkinPlayer->URL);
 				}
 				else
 				{
-					SkinPlayer = SkinPlayer->Link;
+					if (radioButton2->Checked == true)
+					{
+						if (queLista != 7 || SkinPlayer == nullptr)
+						{
+							SkinPlayer = PTR7;
+							queLista = 7;
+						}
+						else
+						{
+							SkinPlayer = SkinPlayer->Link;
+						}
+							listBox1->Items->Clear();
+							listBox1->Items->Add("SKIN: " + SkinPlayer->Nombre);
+							pictureBox1->Load(SkinPlayer->URL);
+					}
+					else
+					{
+						if (queLista != 8 || SkinPlayer == nullptr)
+						{
+							SkinPlayer = PTR8;
+							queLista = 8;
+						}
+						else
+						{
+							SkinPlayer = SkinPlayer->Link;
+						}
+							listBox1->Items->Clear();
+							listBox1->Items->Add("SKIN: " + SkinPlayer->Nombre);
+							pictureBox1->Load(SkinPlayer->URL);
+						
+					}
 				}
-				listBox1->Items->Clear();
-				listBox1->Items->Add("SKIN: " + SkinPlayer->Nombre);
-				pictureBox1->Load(SkinPlayer->URL);
 			}
 			else
 			{
-				if (SkinPlayer2 == nullptr)
+				//PARA JUGADOR 2
+				if (radioButton4->Checked == true)
 				{
-					SkinPlayer2 = PTR6;
+					if (queLista2 != 6 || SkinPlayer2 == nullptr)
+					{
+						SkinPlayer2 = PTR6;
+						queLista2 = 6;
+					}
+					else
+					{
+						SkinPlayer2 = SkinPlayer2->Link;
+					}
+						listBox2->Items->Clear();
+						listBox2->Items->Add("SKIN: " + SkinPlayer2->Nombre);
+						pictureBox2->Load(SkinPlayer2->URL);
+					
 				}
 				else
 				{
-					SkinPlayer2 = SkinPlayer2->Link;
+					if (radioButton5->Checked == true)
+					{
+						if (queLista2 != 7 || SkinPlayer2 == nullptr)
+						{
+							SkinPlayer2 = PTR7;
+							queLista2 = 7;
+						}
+						else
+						{
+							SkinPlayer2 = SkinPlayer2->Link;
+						}
+							listBox2->Items->Clear();
+							listBox2->Items->Add("SKIN: " + SkinPlayer2->Nombre);
+							pictureBox2->Load(SkinPlayer2->URL);
+						
+					}
+					else
+					{
+						if (queLista2 != 8 || SkinPlayer2 == nullptr)
+						{
+							SkinPlayer2 = PTR8;
+							queLista2 = 8;
+						}
+						else
+						{
+							SkinPlayer2 = SkinPlayer2->Link;
+						}
+							listBox2->Items->Clear();
+							listBox2->Items->Add("SKIN: " + SkinPlayer2->Nombre);
+							pictureBox2->Load(SkinPlayer2->URL);
+						
+					}
 				}
-				listBox2->Items->Clear();
-				listBox2->Items->Add("SKIN: " + SkinPlayer2->Nombre);
-				pictureBox2->Load(SkinPlayer2->URL);
 			}
 			
 		}
@@ -1152,34 +1226,86 @@ namespace SeleccionYJuego {
 			}
 			
 		}
-
-
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////NUEVOS SKIN///////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////CON LISTA ENLAZADA CIRCULAR
 		//////////////////////////CREANDO NUEVO SKIN
-		void nuevoSkin(String^Name, String^URL){
-			ContSkin++;
+		void nuevoSkin(String^Name, String^URL, String^Tipo){
 			Skin^P = gcnew Skin();
 			P->Nombre = Name;
 			P->URL = URL;
-			if (PTR6 == nullptr)
+			P->Arma = Tipo;
+			if (Tipo->Equals("Hacha"))
 			{
-				PTR6 = P;
-				PTR6->Link = PTR6;
-				P = nullptr;
+				if (PTR6 == nullptr)
+				{
+					PTR6 = P;
+					PTR6->Link = PTR6;
+					P = nullptr;
+				}
+				else
+				{
+					Skin^Q = gcnew Skin();
+					Q = PTR6;
+					while (Q->Link != PTR6)
+					{
+						Q = Q->Link;
+					}
+					Q->Link = P;
+					P->Link = PTR6;
+					Q = nullptr;
+					P = nullptr;
+				}
 			}
 			else
 			{
-				Skin^Q = gcnew Skin();
-				Q = PTR6;
-				while (Q->Link != PTR6)
+				if (Tipo->Equals("Lanza"))
 				{
-					Q = Q->Link;
+					if (PTR7 == nullptr)
+					{
+						PTR7 = P;
+						PTR7->Link = PTR7;
+						P = nullptr;
+					}
+					else
+					{
+						Skin^Q = gcnew Skin();
+						Q = PTR7;
+						while (Q->Link != PTR7)
+						{
+							Q = Q->Link;
+						}
+						Q->Link = P;
+						P->Link = PTR7;
+						Q = nullptr;
+						P = nullptr;
+					}
 				}
-				Q->Link = P;
-				P->Link = PTR6;
-				Q = nullptr;
-				P = nullptr;
+				else
+				{
+					if (PTR8 == nullptr)
+					{
+						PTR8 = P;
+						PTR8->Link = PTR8;
+						P = nullptr;
+					}
+					else
+					{
+						Skin^Q = gcnew Skin();
+						Q = PTR8;
+						while (Q->Link != PTR8)
+						{
+							Q = Q->Link;
+						}
+						Q->Link = P;
+						P->Link = PTR8;
+						Q = nullptr;
+						P = nullptr;
+					}
+				}
 			}
+			
 
 		}
 		//////////////////////////CREANDO NUEVO PERSONAJE
@@ -1313,8 +1439,9 @@ namespace SeleccionYJuego {
 				P = nullptr;
 			}
 		}
-
-
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////MOVERSE////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////SUBRUTINA PARA CAMBIAR INFORMACION DE PERSONAJE CADA VEZ QUE SE SELECCIONA UNA UNIDAD EN EL COMBOBOX
 		////////PARA COMBOBOX1
 		void moverseOPosicionarse(){
@@ -1362,36 +1489,56 @@ namespace SeleccionYJuego {
 				siguienteMirmidon(2);
 			}
 		}
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////SELECCIONAR SKIN////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////SELECCION DE SKINS
 		void seleccionarSkin(int Jugador){
 			if (Jugador == 1)
 			{
 				SkinSelecionado = SkinPlayer;
 				Skin^P = gcnew Skin();
-				P = PTR6;
-				while (P->Link != SkinPlayer)
-				{
-					P = P->Link;
-				}
-				if (SkinPlayer == PTR6)
-				{
-					PTR6 = PTR6->Link;
-				}
-				P->Link = SkinPlayer->Link;
 				///Poniendo el arma en el nodo
 				if (radioButton1->Checked == true)
 				{
-					SkinPlayer->Arma = radioButton1->Text;
+					P = PTR6;
+					while (P->Link != SkinPlayer)
+					{
+						P = P->Link;
+					}
+					if (SkinPlayer == PTR6)
+					{
+						PTR6 = PTR6->Link;
+					}
+					P->Link = SkinPlayer->Link;
 				}
 				else
 				{
 					if (radioButton2->Checked == true)
 					{
-						SkinPlayer->Arma = radioButton2->Text;
+						P = PTR7;
+						while (P->Link != SkinPlayer)
+						{
+							P = P->Link;
+						}
+						if (SkinPlayer == PTR7)
+						{
+							PTR7 = PTR7->Link;
+						}
+						P->Link = SkinPlayer->Link;
 					}
 					else
 					{
-						SkinPlayer->Arma = radioButton3->Text;
+						P = PTR8;
+						while (P->Link != SkinPlayer)
+						{
+							P = P->Link;
+						}
+						if (SkinPlayer == PTR8)
+						{
+							PTR8 = PTR8->Link;
+						}
+						P->Link = SkinPlayer->Link;
 					}
 				}
 				button4->Enabled = true;
@@ -1407,30 +1554,48 @@ namespace SeleccionYJuego {
 			{
 				SkinSelecionado2 = SkinPlayer2;
 				Skin^P = gcnew Skin();
-				P = PTR6;
-				while (P->Link != SkinPlayer2)
-				{
-					P = P->Link;
-				}
-				if (SkinPlayer2 == PTR6)
-				{
-					PTR6 = PTR6->Link;
-				}
-				P->Link = SkinPlayer2->Link;
+				
 				///Poniendo el arma en el nodo
 				if (radioButton4->Checked == true)
 				{
-					SkinPlayer2->Arma = radioButton4->Text;
+					P = PTR6;
+					while (P->Link != SkinPlayer2)
+					{
+						P = P->Link;
+					}
+					if (SkinPlayer2 == PTR6)
+					{
+						PTR6 = PTR6->Link;
+					}
+					P->Link = SkinPlayer2->Link;
 				}
 				else
 				{
 					if (radioButton5->Checked == true)
 					{
-						SkinPlayer2->Arma = radioButton5->Text;
+						P = PTR7;
+						while (P->Link != SkinPlayer2)
+						{
+							P = P->Link;
+						}
+						if (SkinPlayer2 == PTR7)
+						{
+							PTR7 = PTR7->Link;
+						}
+						P->Link = SkinPlayer2->Link;
 					}
 					else
 					{
-						SkinPlayer2->Arma = radioButton6->Text;
+						P = PTR8;
+						while (P->Link != SkinPlayer2)
+						{
+							P = P->Link;
+						}
+						if (SkinPlayer2 == PTR8)
+						{
+							PTR8 = PTR8->Link;
+						}
+						P->Link = SkinPlayer2->Link;
 					}
 				}
 				button8->Enabled = true;
@@ -1712,14 +1877,9 @@ namespace SeleccionYJuego {
 			
 
 		}
-		String^ContenidoB1;
-		String^ContenidoB2;
-		String^ContenidoB3;
-		String^ContenidoB5;
-		String^ContenidoB6;
-		String^ContenidoB7;
-
-
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////MOSTRAR EN BOTONES///////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		/////////////////////////////////SUBRUTINA PARA COLOCAR PERSONAJE ELEGIDO EN UN BOTON
 		////////SI SE ELIGIO UN JINETE
 		void MostrarEnBotonesJIN(int Boton){
@@ -2082,20 +2242,21 @@ namespace SeleccionYJuego {
 					}
 				}
 			}
-
-
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////DE SELECCIONAR SKIN/////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//////DESELECCIONAR SKIN
 		void deSeleccionarSkin(int Jugador){
 			if (Jugador == 1)
 			{
-				nuevoSkin(SkinSelecionado->Nombre, SkinSelecionado->URL);
+				nuevoSkin(SkinSelecionado->Nombre, SkinSelecionado->URL, SkinSelecionado->Arma);
 				button13->Enabled = true;
 				button14->Enabled = true;
 				Listo(1);
 			}
 			else
 			{
-				nuevoSkin(SkinSelecionado2->Nombre, SkinSelecionado2->URL);
+				nuevoSkin(SkinSelecionado2->Nombre, SkinSelecionado2->URL, SkinSelecionado2->Arma);
 				button15->Enabled = true;
 				button16->Enabled = true;
 				Listo(2);
@@ -2587,10 +2748,15 @@ private: System::Void Juego_Load(System::Object^  sender, System::EventArgs^  e)
 			 nuevoMirmidon("Volke", "Volke.png");
 
 			
-			 nuevoSkin("Ena", "Ena.png");
-			 nuevoSkin("Maurim", "Maurim.png");
-			 nuevoSkin("Mia", "Mia.png");
-			 nuevoSkin("Nasir", "Nasir.png");
+			 nuevoSkin("Ena", "Ena.png", "Hacha");
+			 nuevoSkin("Maurim", "Maurim.png", "Hacha");
+			 nuevoSkin("Illyana", "Illyana.png", "Hacha");
+			 nuevoSkin("Mia", "Mia.png", "Lanza");
+			 nuevoSkin("Nasir", "Nasir.png", "Lanza");
+			 nuevoSkin("Janaff", "Janaff.png", "Lanza");
+			 nuevoSkin("Oscar", "Oscar.png", "Espada");
+			 nuevoSkin("Reyson", "Reyson.png", "Espada");
+			 nuevoSkin("Jill", "Jill.png", "Espada");
 			 /*
 			 mostrar1();
 			 mostrar2();
@@ -2686,7 +2852,6 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			 }
 }
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-			 siguienteSkin(1);
 			 deSeleccionarSkin(1);
 			 Casilla4 = false;
 			 button4->Text = "";
@@ -2919,7 +3084,6 @@ private: System::Void button7_Click(System::Object^  sender, System::EventArgs^ 
 			 }
 }
 private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
-			 siguienteSkin(2);
 			 deSeleccionarSkin(2);
 			 Casilla8 = false;
 			 button8->Text = "";
@@ -2965,18 +3129,45 @@ private: System::Void button17_Click(System::Object^  sender, System::EventArgs^
 				
 			 }
 }
+		 //RADIOBUTTONS
 private: System::Void radioButton6_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+			 if (radioButton6->Checked == true)
+			 {
+				 siguienteSkin(2);
+			 }
 }
 private: System::Void radioButton5_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+			 if (radioButton5->Checked == true)
+			 {
+				 siguienteSkin(2);
+			 }
 }
 private: System::Void radioButton4_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+			 if (radioButton4->Checked == true)
+			 {
+				 siguienteSkin(2);
+			 }
 }
 private: System::Void radioButton3_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+			 if (radioButton3->Checked == true)
+			 {
+				 siguienteSkin(1);
+			 }
 }
 private: System::Void radioButton2_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+			 if (radioButton2->Checked == true)
+			 {
+				 siguienteSkin(1);
+			 }
 }
 private: System::Void radioButton1_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+			 if (radioButton1->Checked == true)
+			 {
+				 siguienteSkin(1);
+			 }
 }
+
+		 //Weas que se activaron por error
 private: System::Void listBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void listBox2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
